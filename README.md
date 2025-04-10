@@ -7,7 +7,7 @@ Jetpack Compose 기반의 Android 개발을 중심으로, 실습과 코드 리�
 > 📚 각 주차별 워크북 및 상세한 과제 내용은 Notion에서 안내됩니다.  
 
 ---
-## 👨‍🏫 [스터디장용] 주차 기준 브랜치 생성
+## 👨‍🏫 주차 기준 브랜치 생성
    스터디장은 각 주차 과제를 시작하기 전, 다음 명령어로 기준 브랜치를 만듭니다.
    
    예: 1주차 과제 기준 브랜치 생성
@@ -34,10 +34,11 @@ Jetpack Compose 기반의 Android 개발을 중심으로, 실습과 코드 리�
    git clone https://github.com/YOUR-ID/4th_Android_A.git
    cd 4th_Android_A
 
-2. 주차에 맞는 브랜치를 생성합니다:
+2. 주차별 기준 브랜치를 기준으로 개인 브랜치 생성:
    예: 1주차 과제 → week01/jaehoon
    ```bash
-   git checkout -b week01/jaehoon
+   git fetch origin
+   git checkout -b week01/jaehoon origin/week01/main
    ```
    
 3. 본인의 폴더에 과제 작성:
