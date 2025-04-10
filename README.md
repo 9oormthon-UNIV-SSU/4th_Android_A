@@ -5,7 +5,6 @@
 Jetpack Compose 기반의 Android 개발을 중심으로, 실습과 코드 리뷰를 통해 실력을 향상시키는 10주차 스터디입니다.
 
 > 📚 각 주차별 워크북 및 상세한 과제 내용은 Notion에서 안내됩니다.  
-> 👉 [Notion 링크](https://your-notion-link.com) ← 여기에 실제 링크 입력해주세요.
 
 ---
 
@@ -19,13 +18,12 @@ Jetpack Compose 기반의 Android 개발을 중심으로, 실습과 코드 리�
    ```bash
    git clone https://github.com/YOUR-ID/4th_Android_A.git
    cd 4th_Android_A
+
 주차에 맞는 브랜치를 생성합니다:
 예: 1주차 과제 → week01/jaehoon
-
-bash
-복사
-편집
+```bash
 git checkout -b week01/jaehoon
+```
 본인의 폴더에 과제 작성:
 
 bash
