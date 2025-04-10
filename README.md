@@ -40,11 +40,11 @@ Jetpack Compose 기반의 Android 개발을 중심으로, 실습과 코드 리�
 
 ## 🧾 브랜치 및 PR 네이밍 규칙
 
-   ### 항목	 예시
-   ### 브랜치명	```week01/jaehoon```
-   ### 과제 폴더 경로	```week01/jaehoon/```
-   ### PR 제목	```[1주차] jaehoon - 버튼 컴포넌트 과제```
-   ### 커밋 메시지	```feat: 1주차 과제 완료```
+   ## 항목	 예시
+   ## 브랜치명	```week01/jaehoon```
+   ## 과제 폴더 경로	```week01/jaehoon/```
+   ## PR 제목	```[1주차] jaehoon - 버튼 컴포넌트 과제```
+   ## 커밋 메시지	```feat: 1주차 과제 완료```
 
 ### 💻 개발 환경
    Android Studio Hedgehog 이상
