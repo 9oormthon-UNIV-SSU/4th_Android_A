@@ -12,15 +12,15 @@ Jetpack Compose 기반의 Android 개발을 중심으로, 실습과 코드 리�
    
    예: 1주차 과제 기준 브랜치 생성
    
-      ```bash
+      ```
       git checkout main
       git pull origin main
-      
-   # 기준 브랜치 생성
-   git checkout -b week01/main
    
-   # 기준 브랜치 push
-   git push origin week01/main
+      # 기준 브랜치 생성
+      git checkout -b week01/main
+      
+      # 기준 브랜치 push
+      git push origin week01/main
    이후 스터디원들은 이 week01/main 브랜치를 기준으로 자신의 브랜치를 생성합니다.
 
 ## 🧑‍💻 과제 제출 가이드
