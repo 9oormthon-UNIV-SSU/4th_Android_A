@@ -8,7 +8,8 @@ Jetpack Compose 기반의 Android 개발을 중심으로, 실습과 코드 리�
 
 ---
 ## 👨‍🏫 주차 기준 브랜치 생성
-   스터디장은 각 주차 과제를 시작하기 전, 다음 명령어로 기준 브랜치를 만듭니다.
+    
+   스터디원은 각 주차 과제를 시작하기 전, 다음 명령어로 기준 브랜치를 매 주 만듭니다.
    
    예: 1주차 과제 기준 브랜치 생성
    
@@ -17,10 +18,10 @@ Jetpack Compose 기반의 Android 개발을 중심으로, 실습과 코드 리�
       git pull origin main
    
       # 기준 브랜치 생성
-      git checkout -b week01/main
+      git checkout -b week01/jaehun
       
       # 기준 브랜치 push
-      git push origin week01/main
+      git push origin week01/jaehun
    이후 스터디원들은 이 week01/main 브랜치를 기준으로 자신의 브랜치를 생성합니다.
 
 ## 🧑‍💻 과제 제출 가이드
@@ -29,7 +30,7 @@ Jetpack Compose 기반의 Android 개발을 중심으로, 실습과 코드 리�
 
 ### ✅ 제출 절차
 
-1. 본 저장소를 **클론**합니다:
+1. 본 저장소를 **클론**합니다(초기 한번만 실행도 됨!):
    ```bash
    git clone https://github.com/YOUR-ID/4th_Android_A.git
    cd 4th_Android_A
@@ -38,7 +39,8 @@ Jetpack Compose 기반의 Android 개발을 중심으로, 실습과 코드 리�
    예: 1주차 과제 → week01/jaehoon
    ```bash
    git fetch origin
-   git checkout -b week01/jaehoon origin/week01/main
+   git checkout -b week01/jaehun
+   git checkout -b week01/feature03
    ```
    
 3. 본인의 폴더에 과제 작성:
@@ -50,7 +52,7 @@ Jetpack Compose 기반의 Android 개발을 중심으로, 실습과 코드 리�
    ```bash
    git add .
    git commit -m "feat: 1주차 과제 완료"
-   git push origin week01/jaehoon
+   git push origin week01/feature03
    ```
 5. GitHub에서 main 브랜치로 PR(Pull Request) 생성!
 
@@ -58,7 +60,7 @@ Jetpack Compose 기반의 Android 개발을 중심으로, 실습과 코드 리�
 
    ## 항목	 예시
    ## 브랜치명	```week01/jaehoon```
-   ## 과제 폴더 경로	```week01/jaehoon/```
+   ## 과제 폴더 경로	```week01/feature03/```
    ## PR 제목	```[1주차] jaehoon - 버튼 컴포넌트 과제```
    ## 커밋 메시지	```feat: 1주차 과제 완료```
 
