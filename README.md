@@ -1,82 +1,99 @@
-# 4th_Android_A
+4th_Android_A
 
-**구름톤 유니브 숭실대 4기 - Android 스터디 A조**
+구름톤 유니브 숭실대 4기 - Android 스터디 A조
 
 Jetpack Compose 기반의 Android 개발을 중심으로, 실습과 코드 리뷰를 통해 실력을 향상시키는 10주차 스터디입니다.
 
-> 📚 각 주차별 워크북 및 상세한 과제 내용은 Notion에서 안내됩니다.  
+📚 각 주차별 워크북 및 상세한 과제 내용은 Notion에서 안내됩니다.
 
----
-## 👨‍🏫 주차 기준 브랜치 생성
-    
-   스터디원은 각 주차 과제를 시작하기 전, 다음 명령어로 기준 브랜치를 매 주 만듭니다.
-   
-   예: 1주차 과제 기준 브랜치 생성
-   
-      ```
-      git checkout main
-      git pull origin main
-   
-      # 기준 브랜치 생성
-      git checkout -b week01/jaehun
-      
-      # 기준 브랜치 push
-      git push origin week01/jaehun
-   이후 스터디원들은 이 week01/main 브랜치를 기준으로 자신의 브랜치를 생성합니다.
+⸻
 
-## 🧑‍💻 과제 제출 가이드
+👨‍🏫 브랜치 전략 (스터디 특화 Git Flow)
 
-스터디원은 아래 절차에 따라 과제를 제출합니다.
+스터디 목적에 맞게, 각 스터디원이 자신만의 develop 브랜치를 만들어 실습을 병렬로 진행합니다.
 
-### ✅ 제출 절차
+📌 브랜치 구조 예시
 
-1. 본 저장소를 **클론**합니다(초기 한번만 실행도 됨!):
-   ```bash
-   git clone https://github.com/YOUR-ID/4th_Android_A.git
-   cd 4th_Android_A
+main                         ← 통합/결과용 (스터디장 관리)
+├── develop-kyojoon         ← Kyojoon 전용 develop 브랜치
+│   └── feature/week06      ← Kyojoon's 실습 브랜치
+├── develop-sunghyuk        ← 팀원 Sunghyuk 전용 develop 브랜치
+    └── feature/week06      ← Sunghyuk's 실습 브랜치
 
-2. 주차별 기준 브랜치를 기준으로 개인 브랜치 생성:
-   예: 1주차 과제 → week01/jaehoon
-   ```bash
-   git fetch origin
-   git checkout -b week01/jaehun
-   git checkout -b week01/feature03
-   ```
-   
-3. 본인의 폴더에 과제 작성:
-   
-   ```bash
-   mkdir -p week01/jaehoon
-   ```
-4. 커밋 후 푸시:
-   ```bash
-   git add .
-   git commit -m "feat: 1주차 과제 완료"
-   git push origin week01/feature03
-   ```
-5. GitHub에서 main 브랜치로 PR(Pull Request) 생성!
+각자 develop 브랜치는 서로 충돌 없이 독립적으로 실습할 수 있는 공간입니다.
 
-## 🧾 브랜치 및 PR 네이밍 규칙
+⸻
 
-   ## 항목	 예시
-   ## 브랜치명	```week01/jaehoon```
-   ## 과제 폴더 경로	```week01/feature03/```
-   ## PR 제목	```[1주차] jaehoon - 버튼 컴포넌트 과제```
-   ## 커밋 메시지	```feat: 1주차 과제 완료```
+✅ 주차별 브랜치 생성 가이드
 
-### 💻 개발 환경
-   Android Studio Hedgehog 이상
-   
-   Kotlin
-   
-   Jetpack Compose (Material3)
+1. 본인의 develop 브랜치 생성 (최초 1회)
 
-### 🙋‍♀️ 기타 안내
-   질문은 GitHub Discussions 또는 Discord 채널에서 자유롭게!
-   
-   매주 스터디장이 과제를 GitHub 이슈로 공지합니다.
-   
-   개인/팀 프로젝트도 차후 진행될 예정입니다.
+git checkout main
+git pull origin main
+git checkout -b develop-kyojoon
+git push origin develop-kyojoon
 
-### 👨‍🏫 스터디장: @deephoon
-   궁금한 점은 언제든 연락 주세요!
+2. 실습 브랜치 생성 (매주)
+
+git checkout develop-kyojoon
+git pull origin develop-kyojoon
+git checkout -b feature/week06
+
+※ 각자 develop 브랜치에서 주차별 feature 브랜치를 따로 생성해 실습합니다.
+
+⸻
+
+🧑‍💻 과제 제출 가이드
+	1.	클론 (최초 1회):
+
+git clone https://github.com/YOUR-ID/4th_Android_A.git
+cd 4th_Android_A
+
+	2.	작업 디렉토리 생성:
+
+mkdir -p week06/kyojoon
+
+	3.	코드 작성 후 커밋/푸시:
+
+git add .
+git commit -m "feat: 6주차 과제 완료"
+git push origin feature/week06
+
+	4.	PR 작성 (대상 브랜치: develop-kyojoon)
+
+	•	PR 제목: [6주차] kyojoon - Navigation + Scaffold 구현
+
+✅ 주의: PR은 develop 브랜치로! main 브랜치에는 파트장이 선택하여 통합합니다.
+
+⸻
+
+📂 폴더 및 네이밍 규칙
+
+항목	예시
+브랜치명	develop-kyojoon, feature/week06
+디렉토리 경로	week06/kyojoon/
+PR 제목	[6주차] kyojoon - Scaffold UI 과제
+커밋 메시지	feat: 6주차 과제 완료
+
+
+⸻
+
+💻 개발 환경
+	•	Android Studio Hedgehog 이상
+	•	Kotlin
+	•	Jetpack Compose (Material3)
+	•	Git / GitHub
+	•	Hilt, Retrofit (선택적 활용)
+
+⸻
+
+🙋‍♀️ 기타 안내
+	•	질문은 GitHub Discussions 또는 Discord 채널에서 자유롭게!
+	•	매주 스터디장이 과제를 GitHub 이슈로 공지합니다.
+	•	개인/팀 프로젝트도 7주차 이후 별도로 진행될 예정입니다.
+
+⸻
+
+👨‍🏫 스터디장: @deephoon
+
+궁금한 점은 언제든지 연락 주세요 :)
