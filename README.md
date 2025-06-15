@@ -45,24 +45,25 @@ Jetpack Compose 기반의 Android 개발을 중심으로, 실습과 코드 리�
 	⸻
 
 🧑‍💻 과제 제출 가이드
-		1.	클론 (최초 1회):
-	
+1.	클론 (최초 1회):
+
+	''' 
 	git clone https://github.com/YOUR-ID/4th_Android_A.git
-	cd 4th_Android_A
-	
-		2.	작업 디렉토리 생성:
-	
-	mkdir -p week06/kyojoon
-	
-		3.	코드 작성 후 커밋/푸시:
-	
-	git add .
-	git commit -m "feat: 6주차 과제 완료"
-	git push origin feature/week06
-	
-		4.	PR 작성 (대상 브랜치: develop-kyojoon)
-	
-		•	PR 제목 예시: [6주차] kyojoon - Navigation + Scaffold 구현
+	cd 4th_Android_A '''
+
+	2.	작업 디렉토리 생성:
+
+mkdir -p week06/kyojoon
+
+	3.	코드 작성 후 커밋/푸시:
+
+git add .
+git commit -m "feat: 6주차 과제 완료"
+git push origin feature/week06
+
+	4.	PR 작성 (대상 브랜치: develop-kyojoon)
+
+	•	PR 제목 예시: [6주차] kyojoon - Navigation + Scaffold 구현
 
 ✅ 주의: PR은 develop 브랜치로! main 브랜치에는 파트장이 선택하여 통합합니다.
 
