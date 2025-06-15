@@ -1,33 +1,34 @@
-4th_Android_A
+# 4th_Android_A
 
-구름톤 유니브 숭실대 4기 - Android 스터디 A조
+**구름톤 유니브 숭실대 4기 - Android 스터디 A조**
 
 Jetpack Compose 기반의 Android 개발을 중심으로, 실습과 코드 리뷰를 통해 실력을 향상시키는 10주차 스터디입니다.
 
-📚 각 주차별 워크북 및 상세한 과제 내용은 Notion에서 안내됩니다.
+> 📚 각 주차별 워크북 및 상세한 과제 내용은 Notion에서 안내됩니다.  
 
-⸻
+---
 
-👨‍🏫 브랜치 전략 (스터디 특화 Git Flow)
+## 👨‍🏫 브랜치 전략 (스터디 특화 Git Flow)
 
-스터디 목적에 맞게, 각 스터디원이 자신만의 develop 브랜치를 만들어 실습을 병렬로 진행합니다.
+스터디 목적에 맞게, 각 스터디원이 **자신만의 develop 브랜치**를 만들어 실습을 병렬로 진행합니다.
 
-📌 브랜치 구조 예시
+### 📌 브랜치 구조 예시
 
 main                         ← 통합/결과용 (스터디장 관리)
-├── develop-kyojoon         ← Kyojoon 전용 develop 브랜치
-│   └── feature/week06      ← Kyojoon's 실습 브랜치
-├── develop-sunghyuk        ← 팀원 Sunghyuk 전용 develop 브랜치
-    └── feature/week06      ← Sunghyuk's 실습 브랜치
+├── develop-kyojoon          ← Kyojoon 전용 develop 브랜치
+│   └── feature/week06       ← Kyojoon’s 실습 브랜치
+├── develop-sunghyuk         ← 팀원 Sunghyuk 전용 develop 브랜치
+└── feature/week06       ← Sunghyuk’s 실습 브랜치
 
-각자 develop 브랜치는 서로 충돌 없이 독립적으로 실습할 수 있는 공간입니다.
+> 각자 develop 브랜치는 서로 충돌 없이 독립적으로 실습할 수 있는 공간입니다.
 
-⸻
+---
 
-✅ 주차별 브랜치 생성 가이드
+## ✅ 주차별 브랜치 생성 가이드
 
-1. 본인의 develop 브랜치 생성 (최초 1회)
+### 1. 본인의 develop 브랜치 생성 (최초 1회)
 
+```bash
 git checkout main
 git pull origin main
 git checkout -b develop-kyojoon
@@ -61,7 +62,7 @@ git push origin feature/week06
 
 	4.	PR 작성 (대상 브랜치: develop-kyojoon)
 
-	•	PR 제목: [6주차] kyojoon - Navigation + Scaffold 구현
+	•	PR 제목 예시: [6주차] kyojoon - Navigation + Scaffold 구현
 
 ✅ 주의: PR은 develop 브랜치로! main 브랜치에는 파트장이 선택하여 통합합니다.
 
@@ -96,4 +97,6 @@ PR 제목	[6주차] kyojoon - Scaffold UI 과제
 
 👨‍🏫 스터디장: @deephoon
 
-궁금한 점은 언제든지 연락 주세요 :)
+궁금한 점은 언제든지 연락 주세요 🙂
+
+---
