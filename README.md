@@ -13,14 +13,14 @@ Jetpack Compose 기반의 Android 개발을 중심으로, 실습과 코드 리�
 스터디 목적에 맞게, 각 스터디원이 **자신만의 develop 브랜치**를 만들어 실습을 병렬로 진행합니다.
 
 ### 📌 브랜치 구조 예시
-
-main                         ← 통합/결과용 (스터디장 관리)
-├── develop-kyojoon          ← Kyojoon 전용 develop 브랜치
-│   └── feature/week06       ← Kyojoon’s 실습 브랜치
-├── develop-sunghyuk         ← 팀원 Sunghyuk 전용 develop 브랜치
-└── feature/week06       ← Sunghyuk’s 실습 브랜치
-
-> 각자 develop 브랜치는 서로 충돌 없이 독립적으로 실습할 수 있는 공간입니다.
+	
+	main                         ← 통합/결과용 (스터디장 관리)
+	├── develop-kyojoon          ← Kyojoon 전용 develop 브랜치
+	│   └── feature/week06       ← Kyojoon’s 실습 브랜치
+	├── develop-sunghyuk         ← 팀원 Sunghyuk 전용 develop 브랜치
+	└── feature/week06       ← Sunghyuk’s 실습 브랜치
+	
+	> 각자 develop 브랜치는 서로 충돌 없이 독립적으로 실습할 수 있는 공간입니다.
 
 ---
 
@@ -28,41 +28,41 @@ main                         ← 통합/결과용 (스터디장 관리)
 
 ### 1. 본인의 develop 브랜치 생성 (최초 1회)
 
-```bash
-git checkout main
-git pull origin main
-git checkout -b develop-kyojoon
-git push origin develop-kyojoon
-
-2. 실습 브랜치 생성 (매주)
-
-git checkout develop-kyojoon
-git pull origin develop-kyojoon
-git checkout -b feature/week06
-
-※ 각자 develop 브랜치에서 주차별 feature 브랜치를 따로 생성해 실습합니다.
-
-⸻
+	```bash
+	git checkout main
+	git pull origin main
+	git checkout -b develop-kyojoon
+	git push origin develop-kyojoon
+	
+	2. 실습 브랜치 생성 (매주)
+	
+	git checkout develop-kyojoon
+	git pull origin develop-kyojoon
+	git checkout -b feature/week06
+	
+	※ 각자 develop 브랜치에서 주차별 feature 브랜치를 따로 생성해 실습합니다.
+	
+	⸻
 
 🧑‍💻 과제 제출 가이드
-	1.	클론 (최초 1회):
-
-git clone https://github.com/YOUR-ID/4th_Android_A.git
-cd 4th_Android_A
-
-	2.	작업 디렉토리 생성:
-
-mkdir -p week06/kyojoon
-
-	3.	코드 작성 후 커밋/푸시:
-
-git add .
-git commit -m "feat: 6주차 과제 완료"
-git push origin feature/week06
-
-	4.	PR 작성 (대상 브랜치: develop-kyojoon)
-
-	•	PR 제목 예시: [6주차] kyojoon - Navigation + Scaffold 구현
+		1.	클론 (최초 1회):
+	
+	git clone https://github.com/YOUR-ID/4th_Android_A.git
+	cd 4th_Android_A
+	
+		2.	작업 디렉토리 생성:
+	
+	mkdir -p week06/kyojoon
+	
+		3.	코드 작성 후 커밋/푸시:
+	
+	git add .
+	git commit -m "feat: 6주차 과제 완료"
+	git push origin feature/week06
+	
+		4.	PR 작성 (대상 브랜치: develop-kyojoon)
+	
+		•	PR 제목 예시: [6주차] kyojoon - Navigation + Scaffold 구현
 
 ✅ 주의: PR은 develop 브랜치로! main 브랜치에는 파트장이 선택하여 통합합니다.
 
