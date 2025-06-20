@@ -17,9 +17,9 @@ Jetpack Compose 기반의 Android 개발을 중심으로, 실습과 코드 리�
 ```
 main                         ← 통합/결과용 (스터디장 관리)
 ├── develop-kyojoon         ← Kyojoon 전용 develop 브랜치
-│   └── feature/week06      ← Kyojoon's 실습 브랜치
+│   └── feature/week06-kyojoon      ← Kyojoon's 실습 브랜치
 ├── develop-sunghyuk        ← 팀원 Sunghyuk 전용 develop 브랜치
-    └── feature/week06      ← Sunghyuk's 실습 브랜치
+    └── feature/week06-sunghyuk      ← Sunghyuk's 실습 브랜치
 ```
 
 > 각자 develop 브랜치는 서로 충돌 없이 독립적으로 실습할 수 있는 공간입니다.
