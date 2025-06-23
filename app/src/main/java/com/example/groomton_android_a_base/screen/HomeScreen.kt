@@ -2,6 +2,7 @@ package com.example.groomton_android_a_base.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -123,11 +124,15 @@ fun StoryCard(story: Story, modifier: Modifier = Modifier) {
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Icon(
-            painter = painterResource(R.drawable.ic_profile),
-            contentDescription = null,
-            modifier = Modifier.padding(8.dp)
-        )
+        IconButton(
+            onClick = {}
+        ) {
+            Icon(
+                painter = painterResource(R.drawable.ic_profile),
+                contentDescription = null,
+                modifier = Modifier.padding(8.dp)
+            )
+        }
         Text(text = story.user.name)
     }
 }
@@ -157,23 +162,32 @@ fun FeedCard(feed: Feed, modifier: Modifier = Modifier) {
             Row(
                 horizontalArrangement = Arrangement.spacedBy(5.dp),
             ) {
-                Icon(
-                    painter = painterResource(R.drawable.ic_profile),
-                    contentDescription = null,
-                    modifier = Modifier.padding(8.dp)
-                )
+                IconButton(
+                    onClick = {}
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_profile),
+                        contentDescription = null,
+                        modifier = Modifier.padding(8.dp)
+                    )
+                }
                 Text(feed.user.name,
                     modifier = Modifier.weight(1f))
             }
-            Icon(
-                painter = painterResource(R.drawable.ic_viewmore_dots),
-                contentDescription = null
-            )
+            IconButton( onClick = {}) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_viewmore_dots),
+                    contentDescription = null
+                )
+            }
         }
         GlideImage(
             model = feed.imageUrl,
             contentDescription = null,
-            modifier = modifier.fillMaxSize().aspectRatio(1f).background(Color.Gray), // 1ㄷ1 비율
+            modifier = modifier
+                .fillMaxSize()
+                .aspectRatio(1f)
+                .background(Color.Gray), // 1ㄷ1 비율
             contentScale = ContentScale.Crop //이미지 비율 맞게 자름
         )
         Row(
@@ -184,28 +198,36 @@ fun FeedCard(feed: Feed, modifier: Modifier = Modifier) {
             Row(
                 verticalAlignment = Alignment.CenterVertically
             ){
-                Icon(
-                    painter = painterResource(R.drawable.ic_like),
-                    contentDescription = null,
-                    modifier = Modifier.padding(8.dp)
-                )
-                Icon(
-                    painter = painterResource(R.drawable.ic_comment),
-                    contentDescription = null,
-                    modifier = Modifier.padding(8.dp)
-                )
+                IconButton(onClick = {})  {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_like),
+                        contentDescription = null,
+                        modifier = Modifier.padding(8.dp)
+                    )
+                }
+                IconButton(onClick = {})  {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_comment),
+                        contentDescription = null,
+                        modifier = Modifier.padding(8.dp)
+                    )
+                }
                 Text("${feed.commentCount}")
+                IconButton(onClick = {})  {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_share),
+                        contentDescription = null,
+                        modifier = Modifier.padding(8.dp)
+                    )
+                }
+            }
+            IconButton(onClick = {})  {
                 Icon(
-                    painter = painterResource(R.drawable.ic_share),
+                    painter = painterResource(R.drawable.ic_bookmark),
                     contentDescription = null,
                     modifier = Modifier.padding(8.dp)
                 )
             }
-            Icon(
-                painter = painterResource(R.drawable.ic_bookmark),
-                contentDescription = null,
-                modifier = Modifier.padding(8.dp)
-            )
         }
         Text("Liked by ${feed.user.name} and ${feed.likeCount} others",
             modifier = modifier.padding(8.dp))
