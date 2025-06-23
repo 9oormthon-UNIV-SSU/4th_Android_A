@@ -1,14 +1,11 @@
 package com.example.groomton_android_a_base.ui.component
 
-import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.groomton_android_a_base.R
@@ -17,9 +14,7 @@ import com.example.groomton_android_a_base.R
 @Composable
 fun BottomBar(navController: NavHostController){
     val screens = listOf("home", "explore", "reels", "profile")
-    NavigationBar(
-        modifier = Modifier.height(60.dp)
-    ) {
+    NavigationBar {
         val navBackStackEntry by navController.currentBackStackEntryAsState() // navControeller에서 backstack 항목을 state 객체로 반환
         val currentRoute = navBackStackEntry?.destination?.route
         screens.forEach{ screen ->
