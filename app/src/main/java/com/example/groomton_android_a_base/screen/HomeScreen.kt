@@ -10,8 +10,10 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -19,11 +21,16 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.rememberBottomAppBarState
+import androidx.compose.material3.rememberBottomSheetScaffoldState
+import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -39,8 +46,10 @@ import com.bumptech.glide.request.RequestOptions
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(stories: List<Story>, feeds: List<Feed>, modifier: Modifier = Modifier) {
+    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(rememberTopAppBarState())
+
     Scaffold(
-        modifier = modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize().nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             TopAppBar(
                 title = {
@@ -79,7 +88,8 @@ fun HomeScreen(stories: List<Story>, feeds: List<Feed>, modifier: Modifier = Mod
                             )
                         }
                     }
-                }
+                },
+                scrollBehavior = scrollBehavior
             )
         }
     ) { innerPadding ->
@@ -107,7 +117,7 @@ fun HomeScreen(stories: List<Story>, feeds: List<Feed>, modifier: Modifier = Mod
 fun StoriesSection(stories: List<Story>, modifier: Modifier = Modifier) {
     LazyRow(
         modifier = modifier
-            .fillMaxSize()
+            .fillMaxWidth()
             .padding(vertical = 8.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         contentPadding = PaddingValues(horizontal = 16.dp)
@@ -118,6 +128,7 @@ fun StoriesSection(stories: List<Story>, modifier: Modifier = Modifier) {
     }
 }
 
+@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun StoryCard(story: Story, modifier: Modifier = Modifier) {
     Column(
@@ -127,10 +138,14 @@ fun StoryCard(story: Story, modifier: Modifier = Modifier) {
         IconButton(
             onClick = {}
         ) {
-            Icon(
-                painter = painterResource(R.drawable.ic_profile),
-                contentDescription = null,
-                modifier = Modifier.padding(8.dp)
+            GlideImage( // 예시: GlideImage 사용
+                model = story.user.ProfilPictureUrl, // 실제 프로필 이미지 URL
+                contentDescription = "${story.user.name}'s story",
+                modifier = Modifier
+                    .size(64.dp) // 적절한 크기 지정
+                    .padding(4.dp)
+                    .background(Color.LightGray, shape = CircleShape), // 로딩 중 배경 및 원형 모양
+                contentScale = ContentScale.Crop
             )
         }
         Text(text = story.user.name)
@@ -165,10 +180,14 @@ fun FeedCard(feed: Feed, modifier: Modifier = Modifier) {
                 IconButton(
                     onClick = {}
                 ) {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_profile),
-                        contentDescription = null,
-                        modifier = Modifier.padding(8.dp)
+                    GlideImage( // 예시: GlideImage 사용
+                        model = feed.user.ProfilPictureUrl, // 실제 프로필 이미지 URL
+                        contentDescription = "${feed.user.name}'s story",
+                        modifier = Modifier
+                            .size(64.dp) // 적절한 크기 지정
+                            .padding(4.dp)
+                            .background(Color.LightGray, shape = CircleShape), // 로딩 중 배경 및 원형 모양
+                        contentScale = ContentScale.Crop
                     )
                 }
                 Text(feed.user.name,
