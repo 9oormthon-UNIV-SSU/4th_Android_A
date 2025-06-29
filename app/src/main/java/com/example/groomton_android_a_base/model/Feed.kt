@@ -1,4 +1,4 @@
-package com.example.groomton_android_a_base.dataclass
+package com.example.groomton_android_a_base.model
 
 data class Feed(
     val id : String,
@@ -8,6 +8,6 @@ data class Feed(
     val caption : String,
     val commentCount : Int,
     val isBookmarked : Boolean,
-    val isLiked : Boolean,
-    val comments : List<Comment>
+    val isLiked : Boolean = false,
+    val comments : List<Comment>    
 )

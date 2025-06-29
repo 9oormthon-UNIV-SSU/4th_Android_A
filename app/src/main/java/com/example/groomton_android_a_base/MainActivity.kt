@@ -14,16 +14,11 @@ import com.example.groomton_android_a_base.ui.theme.GroomTon_Android_A_BaseTheme
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.groomton_android_a_base.dataclass.Comment
 import com.example.groomton_android_a_base.screen.ExploreScreen
 import com.example.groomton_android_a_base.screen.HomeScreen
 import com.example.groomton_android_a_base.screen.ProfileScreen
 import com.example.groomton_android_a_base.screen.ReelsScreen
 import com.example.groomton_android_a_base.ui.component.BottomBar
-import com.example.groomton_android_a_base.dataclass.Feed
-import com.example.groomton_android_a_base.dataclass.Story
-import com.example.groomton_android_a_base.sampledata.SampleDataProvider
-import com.example.groomton_android_a_base.dataclass.User
 import com.example.groomton_android_a_base.sampledata.SampleDataProvider.allSampleFeeds
 import com.example.groomton_android_a_base.sampledata.SampleDataProvider.sampleExploreFeeds
 import com.example.groomton_android_a_base.sampledata.SampleDataProvider.sampleStories

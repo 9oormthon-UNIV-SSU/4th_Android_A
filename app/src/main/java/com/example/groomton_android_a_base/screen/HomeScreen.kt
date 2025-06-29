@@ -21,22 +21,21 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.material3.rememberBottomAppBarState
-import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.groomton_android_a_base.R
-import com.example.groomton_android_a_base.dataclass.Feed
-import com.example.groomton_android_a_base.dataclass.Story
-import com.example.groomton_android_a_base.dataclass.User
+import com.example.groomton_android_a_base.model.Feed
+import com.example.groomton_android_a_base.model.Story
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.example.groomton_android_a_base.sampledata.SampleDataProvider
@@ -50,6 +49,7 @@ fun HomeScreen(stories: List<Story>, feeds: List<Feed>, modifier: Modifier = Mod
         modifier = modifier.fillMaxSize().nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             TopAppBar(
+                modifier = modifier.padding(start = 10.dp, end = 5.dp, top = 5.dp),
                 title = {
                     Icon(
                         painter = painterResource(R.drawable.ic_instagram),
@@ -58,7 +58,7 @@ fun HomeScreen(stories: List<Story>, feeds: List<Feed>, modifier: Modifier = Mod
                 },
                 actions = {
                     Row(
-                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        horizontalArrangement = Arrangement.spacedBy(5.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         IconButton(
@@ -67,6 +67,7 @@ fun HomeScreen(stories: List<Story>, feeds: List<Feed>, modifier: Modifier = Mod
                             Icon(
                                 painter = painterResource(R.drawable.ic_post),
                                 contentDescription = null
+
                             )
                         }
                         IconButton(
@@ -98,6 +99,7 @@ fun HomeScreen(stories: List<Story>, feeds: List<Feed>, modifier: Modifier = Mod
         ) {
             if (stories.isNotEmpty()) {
                 item {
+
                     StoriesSection(stories = stories)
                 }
                 item {
@@ -116,7 +118,7 @@ fun StoriesSection(stories: List<Story>, modifier: Modifier = Modifier) {
     LazyRow(
         modifier = modifier
             .fillMaxWidth()
-            .padding(vertical = 8.dp),
+            .padding(vertical = 5.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         contentPadding = PaddingValues(horizontal = 16.dp)
     ) {
@@ -134,16 +136,17 @@ fun StoryCard(story: Story, modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         IconButton(
-            onClick = {}
+            onClick = {},
+            modifier = Modifier.size(80.dp)
         ) {
-            GlideImage( // 예시: GlideImage 사용
-                model = story.user.ProfilPictureUrl, // 실제 프로필 이미지 URL
+            GlideImage(
+                model = story.user.ProfilPictureUrl,
                 contentDescription = "${story.user.name}'s story",
                 modifier = Modifier
-                    .size(64.dp) // 적절한 크기 지정
-                    .padding(4.dp)
-                    .background(Color.LightGray, shape = CircleShape), // 로딩 중 배경 및 원형 모양
-                contentScale = ContentScale.Crop
+                    .size(64.dp)
+                    .clip(CircleShape)
+                    .fillMaxSize().background(Color.Gray), // 로딩 중 배경 및 원형 모양
+                contentScale = ContentScale.Crop,
             )
         }
         Text(text = story.user.name)
@@ -168,7 +171,7 @@ fun FeedCard(feed: Feed, modifier: Modifier = Modifier) {
         modifier = modifier.fillMaxWidth()
     ) {
         Row(
-            modifier = modifier.padding(16.dp),
+            modifier = modifier.fillMaxWidth().padding(vertical = 8.dp, horizontal = 16.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
@@ -183,13 +186,15 @@ fun FeedCard(feed: Feed, modifier: Modifier = Modifier) {
                         contentDescription = "${feed.user.name}'s story",
                         modifier = Modifier
                             .size(64.dp) // 적절한 크기 지정
-                            .padding(4.dp)
-                            .background(Color.LightGray, shape = CircleShape), // 로딩 중 배경 및 원형 모양
+                            .clip(CircleShape).background(Color.Gray), // 로딩 중 배경 및 원형 모양
                         contentScale = ContentScale.Crop
                     )
                 }
-                Text(feed.user.name,
-                    modifier = Modifier.weight(1f))
+                Text(text = feed.user.name,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.align(Alignment.CenterVertically,
+                        )
+                )
             }
             IconButton( onClick = {}) {
                 Icon(

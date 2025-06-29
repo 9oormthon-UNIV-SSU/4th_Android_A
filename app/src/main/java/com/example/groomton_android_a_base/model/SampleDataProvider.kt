@@ -1,10 +1,10 @@
 package com.example.groomton_android_a_base.sampledata
 
-import com.example.groomton_android_a_base.dataclass.Comment
-import com.example.groomton_android_a_base.dataclass.ExploreFeed
-import com.example.groomton_android_a_base.dataclass.Feed
-import com.example.groomton_android_a_base.dataclass.Story
-import com.example.groomton_android_a_base.dataclass.User
+import com.example.groomton_android_a_base.model.Comment
+import com.example.groomton_android_a_base.model.ExploreFeed
+import com.example.groomton_android_a_base.model.Feed
+import com.example.groomton_android_a_base.model.Story
+import com.example.groomton_android_a_base.model.User
 
 object SampleDataProvider {
 

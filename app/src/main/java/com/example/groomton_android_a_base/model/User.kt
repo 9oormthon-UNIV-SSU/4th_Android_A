@@ -1,4 +1,4 @@
-package com.example.groomton_android_a_base.dataclass
+package com.example.groomton_android_a_base.model
 
 data class User (
     val name: String,
