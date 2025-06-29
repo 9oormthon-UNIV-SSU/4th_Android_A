@@ -1,0 +1,343 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:2:1-28:12
+MERGED from [androidx.navigation:navigation-compose-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/a634f72b9a7ade4eb437fa6a8e34f7b3/transformed/navigation-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material3:material3-android:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/360c2fd5efb7e5a35ed3b479e301b840/transformed/material3-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/97e10de6b201ec08360bace8b71b5f63/transformed/navigation-runtime-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/12d1ec38e6020b75b55f3ed9d9dd1ca8/transformed/navigation-common-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/cb78b3637303df117f15fb05f16ac1cf/transformed/autofill-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/c4bbf8980a8ad44596d279a7df1bac80/transformed/ui-tooling-data-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e4d3e7575d403ac7432606a003ab81d6/transformed/ui-tooling-preview-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/4d646777cb482e933e0d4f57f68015ec/transformed/ui-tooling-release/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.compose.material:material-android:1.7.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/45d036068b639da10141faf4e44a5db1/transformed/material-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-core-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/0f9dd8260f57f4d7624374a77cb22013/transformed/animation-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-ripple-android:1.7.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/41c939c2e782ca13e6541c5813a8a6dc/transformed/material-ripple-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/10cdcce06aaab0a76f8a61cdd22badb7/transformed/animation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/b817e57b857108155ed1c6e64754137e/transformed/foundation-layout-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/02dbd0f352a767316fa0f3002ed3c47f/transformed/foundation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-util-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/71b992272c08b9e6a592a61af439068f/transformed/ui-util-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/d582c3dfdbb7d31398e5f73b079ee0da/transformed/ui-unit-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/961d6054ae9a502dcbe0e84cf6fb5681/transformed/ui-text-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/2306b68de20b6db9d44589980300834e/transformed/ui-geometry-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/44cc2f80b6695fbbcb5d29c07f536c0d/transformed/ui-graphics-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.graphics:graphics-path:1.0.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/d86d6d672e58d0eeb5618889157ef762/transformed/graphics-path-1.0.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e8755e2f6b6e86741c6fb11b3b7c5e48/transformed/emoji2-1.3.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.core:core:1.16.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/6503b4cfd5da1c5cac3ca1c82d1dd7be/transformed/core-1.16.0/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/ac3260df49aca5a306f75e16744c431a/transformed/lifecycle-process-2.9.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/3da87fdae0ac43dd32d617a9ffad2da0/transformed/lifecycle-livedata-core-2.9.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/69f94c57ca3d0b6905037eee0d4255d0/transformed/lifecycle-runtime-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/4557bd11b2786591d2fd366b4956db7a/transformed/lifecycle-viewmodel-savedstate-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/3b425a69984bedb950c5f2f899593491/transformed/lifecycle-runtime-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/6d0853b04257f90ffba1129eacc18773/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/588d5519f85f72c004ce3486c724d2e1/transformed/savedstate-ktx-1.3.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.savedstate:savedstate-compose-android:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/a2a4ad480ba4528a23d46f8e110f220f/transformed/savedstate-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.savedstate:savedstate-android:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/9bdc91b5494c2645733c5a144fe3017c/transformed/savedstate-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/9f6829bcf88be82613d22bb1cd4f38ce/transformed/lifecycle-viewmodel-ktx-2.9.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/58cf806a46a752e7001e3d954f282f1c/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/221d6b5123a5aa1c75b5d3fa5fa007a0/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/3bd9d744f04fb52c24fd1c5a6611c9ba/transformed/material-icons-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/3b0a83ed9143707b311402c65206062e/transformed/ui-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-test-manifest:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/1c49ca6f3b680724b9df72e1a66bb6bb/transformed/ui-test-manifest-1.7.8/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.activity:activity:1.10.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/b626482672d0b50c49141bf3a714471a/transformed/activity-1.10.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity-ktx:1.10.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/83dec3bcd00b65eaedc5ab01adbc60c4/transformed/activity-ktx-1.10.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity-compose:1.10.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/f671cba7f4ae17152c069b35b30ba2f8/transformed/activity-compose-1.10.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/038a2238467645b734ab171e356c342c/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.core:core-ktx:1.16.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/cb03d9c61d87266df067b17ffef49183/transformed/core-ktx-1.16.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/3aca3624ccf29bc7bf4996dbb8806fb6/transformed/runtime-saveable-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/d83546b98e16ec7b47736f0587812d52/transformed/runtime-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/536402e7aa2a8ac648e660f2473d578f/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.core:core-viewtree:1.0.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/1d34d7cba78f888092c459704804e923/transformed/core-viewtree-1.0.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/8d7dc3818fda3e7e284c1ba94c578bbd/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/c8d9c152d7d21eab64a5224aa7c23096/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/689ab3bf64f51e21e1335cd2926f9d48/transformed/startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e76cc0e0b660171153830a7cf26a78f4/transformed/tracing-1.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/6bbebd7f54f8c96e7b37004e718e8cb0/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+	package
+		INJECTED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:5:5-26:19
+INJECTED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:5:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/4d646777cb482e933e0d4f57f68015ec/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/4d646777cb482e933e0d4f57f68015ec/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e8755e2f6b6e86741c6fb11b3b7c5e48/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e8755e2f6b6e86741c6fb11b3b7c5e48/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.16.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/6503b4cfd5da1c5cac3ca1c82d1dd7be/transformed/core-1.16.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.16.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/6503b4cfd5da1c5cac3ca1c82d1dd7be/transformed/core-1.16.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/ac3260df49aca5a306f75e16744c431a/transformed/lifecycle-process-2.9.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/ac3260df49aca5a306f75e16744c431a/transformed/lifecycle-process-2.9.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.compose.ui:ui-test-manifest:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/1c49ca6f3b680724b9df72e1a66bb6bb/transformed/ui-test-manifest-1.7.8/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-test-manifest:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/1c49ca6f3b680724b9df72e1a66bb6bb/transformed/ui-test-manifest-1.7.8/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/8d7dc3818fda3e7e284c1ba94c578bbd/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/8d7dc3818fda3e7e284c1ba94c578bbd/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/689ab3bf64f51e21e1335cd2926f9d48/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/689ab3bf64f51e21e1335cd2926f9d48/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+	android:extractNativeLibs
+		INJECTED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.16.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/6503b4cfd5da1c5cac3ca1c82d1dd7be/transformed/core-1.16.0/AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:12:9-35
+	android:label
+		ADDED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:10:9-41
+	android:fullBackupContent
+		ADDED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:8:9-54
+	android:roundIcon
+		ADDED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:11:9-54
+	tools:targetApi
+		ADDED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:14:9-29
+	android:icon
+		ADDED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:9:9-43
+	android:allowBackup
+		ADDED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:13:9-47
+	android:dataExtractionRules
+		ADDED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:7:9-65
+activity#com.foo.instagram.MainActivity
+ADDED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:15:9-25:20
+	android:label
+		ADDED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:18:13-45
+	android:exported
+		ADDED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:17:13-36
+	android:theme
+		ADDED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:19:13-51
+	android:name
+		ADDED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:16:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:20:13-24:29
+action#android.intent.action.MAIN
+ADDED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:21:17-69
+	android:name
+		ADDED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:21:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:23:17-77
+	android:name
+		ADDED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml:23:27-74
+uses-sdk
+INJECTED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml
+INJECTED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml
+MERGED from [androidx.navigation:navigation-compose-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/a634f72b9a7ade4eb437fa6a8e34f7b3/transformed/navigation-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/a634f72b9a7ade4eb437fa6a8e34f7b3/transformed/navigation-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material3:material3-android:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/360c2fd5efb7e5a35ed3b479e301b840/transformed/material3-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3-android:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/360c2fd5efb7e5a35ed3b479e301b840/transformed/material3-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/97e10de6b201ec08360bace8b71b5f63/transformed/navigation-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/97e10de6b201ec08360bace8b71b5f63/transformed/navigation-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/12d1ec38e6020b75b55f3ed9d9dd1ca8/transformed/navigation-common-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/12d1ec38e6020b75b55f3ed9d9dd1ca8/transformed/navigation-common-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/cb78b3637303df117f15fb05f16ac1cf/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/cb78b3637303df117f15fb05f16ac1cf/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/c4bbf8980a8ad44596d279a7df1bac80/transformed/ui-tooling-data-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/c4bbf8980a8ad44596d279a7df1bac80/transformed/ui-tooling-data-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e4d3e7575d403ac7432606a003ab81d6/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e4d3e7575d403ac7432606a003ab81d6/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/4d646777cb482e933e0d4f57f68015ec/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/4d646777cb482e933e0d4f57f68015ec/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material:material-android:1.7.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/45d036068b639da10141faf4e44a5db1/transformed/material-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-android:1.7.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/45d036068b639da10141faf4e44a5db1/transformed/material-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/0f9dd8260f57f4d7624374a77cb22013/transformed/animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/0f9dd8260f57f4d7624374a77cb22013/transformed/animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.7.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/41c939c2e782ca13e6541c5813a8a6dc/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.7.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/41c939c2e782ca13e6541c5813a8a6dc/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/10cdcce06aaab0a76f8a61cdd22badb7/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/10cdcce06aaab0a76f8a61cdd22badb7/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/b817e57b857108155ed1c6e64754137e/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/b817e57b857108155ed1c6e64754137e/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/02dbd0f352a767316fa0f3002ed3c47f/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/02dbd0f352a767316fa0f3002ed3c47f/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/71b992272c08b9e6a592a61af439068f/transformed/ui-util-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/71b992272c08b9e6a592a61af439068f/transformed/ui-util-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/d582c3dfdbb7d31398e5f73b079ee0da/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/d582c3dfdbb7d31398e5f73b079ee0da/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/961d6054ae9a502dcbe0e84cf6fb5681/transformed/ui-text-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/961d6054ae9a502dcbe0e84cf6fb5681/transformed/ui-text-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/2306b68de20b6db9d44589980300834e/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/2306b68de20b6db9d44589980300834e/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/44cc2f80b6695fbbcb5d29c07f536c0d/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/44cc2f80b6695fbbcb5d29c07f536c0d/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/d86d6d672e58d0eeb5618889157ef762/transformed/graphics-path-1.0.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/d86d6d672e58d0eeb5618889157ef762/transformed/graphics-path-1.0.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e8755e2f6b6e86741c6fb11b3b7c5e48/transformed/emoji2-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e8755e2f6b6e86741c6fb11b3b7c5e48/transformed/emoji2-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.core:core:1.16.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/6503b4cfd5da1c5cac3ca1c82d1dd7be/transformed/core-1.16.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.16.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/6503b4cfd5da1c5cac3ca1c82d1dd7be/transformed/core-1.16.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/ac3260df49aca5a306f75e16744c431a/transformed/lifecycle-process-2.9.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/ac3260df49aca5a306f75e16744c431a/transformed/lifecycle-process-2.9.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/3da87fdae0ac43dd32d617a9ffad2da0/transformed/lifecycle-livedata-core-2.9.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/3da87fdae0ac43dd32d617a9ffad2da0/transformed/lifecycle-livedata-core-2.9.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/69f94c57ca3d0b6905037eee0d4255d0/transformed/lifecycle-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/69f94c57ca3d0b6905037eee0d4255d0/transformed/lifecycle-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/4557bd11b2786591d2fd366b4956db7a/transformed/lifecycle-viewmodel-savedstate-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/4557bd11b2786591d2fd366b4956db7a/transformed/lifecycle-viewmodel-savedstate-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/3b425a69984bedb950c5f2f899593491/transformed/lifecycle-runtime-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/3b425a69984bedb950c5f2f899593491/transformed/lifecycle-runtime-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/6d0853b04257f90ffba1129eacc18773/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/6d0853b04257f90ffba1129eacc18773/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/588d5519f85f72c004ce3486c724d2e1/transformed/savedstate-ktx-1.3.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/588d5519f85f72c004ce3486c724d2e1/transformed/savedstate-ktx-1.3.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-compose-android:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/a2a4ad480ba4528a23d46f8e110f220f/transformed/savedstate-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-compose-android:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/a2a4ad480ba4528a23d46f8e110f220f/transformed/savedstate-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-android:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/9bdc91b5494c2645733c5a144fe3017c/transformed/savedstate-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-android:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/9bdc91b5494c2645733c5a144fe3017c/transformed/savedstate-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/9f6829bcf88be82613d22bb1cd4f38ce/transformed/lifecycle-viewmodel-ktx-2.9.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/9f6829bcf88be82613d22bb1cd4f38ce/transformed/lifecycle-viewmodel-ktx-2.9.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/58cf806a46a752e7001e3d954f282f1c/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/58cf806a46a752e7001e3d954f282f1c/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/221d6b5123a5aa1c75b5d3fa5fa007a0/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/221d6b5123a5aa1c75b5d3fa5fa007a0/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/3bd9d744f04fb52c24fd1c5a6611c9ba/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/3bd9d744f04fb52c24fd1c5a6611c9ba/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/3b0a83ed9143707b311402c65206062e/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/3b0a83ed9143707b311402c65206062e/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-test-manifest:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/1c49ca6f3b680724b9df72e1a66bb6bb/transformed/ui-test-manifest-1.7.8/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-test-manifest:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/1c49ca6f3b680724b9df72e1a66bb6bb/transformed/ui-test-manifest-1.7.8/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.10.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/b626482672d0b50c49141bf3a714471a/transformed/activity-1.10.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.10.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/b626482672d0b50c49141bf3a714471a/transformed/activity-1.10.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-ktx:1.10.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/83dec3bcd00b65eaedc5ab01adbc60c4/transformed/activity-ktx-1.10.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.10.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/83dec3bcd00b65eaedc5ab01adbc60c4/transformed/activity-ktx-1.10.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.10.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/f671cba7f4ae17152c069b35b30ba2f8/transformed/activity-compose-1.10.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.10.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/f671cba7f4ae17152c069b35b30ba2f8/transformed/activity-compose-1.10.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/038a2238467645b734ab171e356c342c/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/038a2238467645b734ab171e356c342c/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.core:core-ktx:1.16.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/cb03d9c61d87266df067b17ffef49183/transformed/core-ktx-1.16.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.16.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/cb03d9c61d87266df067b17ffef49183/transformed/core-ktx-1.16.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/3aca3624ccf29bc7bf4996dbb8806fb6/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/3aca3624ccf29bc7bf4996dbb8806fb6/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/d83546b98e16ec7b47736f0587812d52/transformed/runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/d83546b98e16ec7b47736f0587812d52/transformed/runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/536402e7aa2a8ac648e660f2473d578f/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/536402e7aa2a8ac648e660f2473d578f/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-viewtree:1.0.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/1d34d7cba78f888092c459704804e923/transformed/core-viewtree-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-viewtree:1.0.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/1d34d7cba78f888092c459704804e923/transformed/core-viewtree-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/8d7dc3818fda3e7e284c1ba94c578bbd/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/8d7dc3818fda3e7e284c1ba94c578bbd/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/c8d9c152d7d21eab64a5224aa7c23096/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/c8d9c152d7d21eab64a5224aa7c23096/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/689ab3bf64f51e21e1335cd2926f9d48/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/689ab3bf64f51e21e1335cd2926f9d48/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e76cc0e0b660171153830a7cf26a78f4/transformed/tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e76cc0e0b660171153830a7cf26a78f4/transformed/tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/6bbebd7f54f8c96e7b37004e718e8cb0/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/6bbebd7f54f8c96e7b37004e718e8cb0/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+	android:targetSdkVersion
+		INJECTED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/dongoh-kim/AndroidStudioProjects/Instagram/app/src/main/AndroidManifest.xml
+activity#androidx.compose.ui.tooling.PreviewActivity
+ADDED from [androidx.compose.ui:ui-tooling-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/4d646777cb482e933e0d4f57f68015ec/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
+	android:exported
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/4d646777cb482e933e0d4f57f68015ec/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/4d646777cb482e933e0d4f57f68015ec/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e8755e2f6b6e86741c6fb11b3b7c5e48/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/ac3260df49aca5a306f75e16744c431a/transformed/lifecycle-process-2.9.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/ac3260df49aca5a306f75e16744c431a/transformed/lifecycle-process-2.9.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/689ab3bf64f51e21e1335cd2926f9d48/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/689ab3bf64f51e21e1335cd2926f9d48/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e8755e2f6b6e86741c6fb11b3b7c5e48/transformed/emoji2-1.3.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e8755e2f6b6e86741c6fb11b3b7c5e48/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e8755e2f6b6e86741c6fb11b3b7c5e48/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e8755e2f6b6e86741c6fb11b3b7c5e48/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e8755e2f6b6e86741c6fb11b3b7c5e48/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e8755e2f6b6e86741c6fb11b3b7c5e48/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e8755e2f6b6e86741c6fb11b3b7c5e48/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.16.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/6503b4cfd5da1c5cac3ca1c82d1dd7be/transformed/core-1.16.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.16.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/6503b4cfd5da1c5cac3ca1c82d1dd7be/transformed/core-1.16.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.16.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/6503b4cfd5da1c5cac3ca1c82d1dd7be/transformed/core-1.16.0/AndroidManifest.xml:23:9-81
+permission#com.foo.instagram.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.16.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/6503b4cfd5da1c5cac3ca1c82d1dd7be/transformed/core-1.16.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.16.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/6503b4cfd5da1c5cac3ca1c82d1dd7be/transformed/core-1.16.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.16.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/6503b4cfd5da1c5cac3ca1c82d1dd7be/transformed/core-1.16.0/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.16.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/6503b4cfd5da1c5cac3ca1c82d1dd7be/transformed/core-1.16.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.16.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/6503b4cfd5da1c5cac3ca1c82d1dd7be/transformed/core-1.16.0/AndroidManifest.xml:26:22-94
+uses-permission#com.foo.instagram.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.16.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/6503b4cfd5da1c5cac3ca1c82d1dd7be/transformed/core-1.16.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.16.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/6503b4cfd5da1c5cac3ca1c82d1dd7be/transformed/core-1.16.0/AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/ac3260df49aca5a306f75e16744c431a/transformed/lifecycle-process-2.9.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/ac3260df49aca5a306f75e16744c431a/transformed/lifecycle-process-2.9.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.9.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/ac3260df49aca5a306f75e16744c431a/transformed/lifecycle-process-2.9.0/AndroidManifest.xml:30:17-78
+activity#androidx.activity.ComponentActivity
+ADDED from [androidx.compose.ui:ui-test-manifest:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/1c49ca6f3b680724b9df72e1a66bb6bb/transformed/ui-test-manifest-1.7.8/AndroidManifest.xml:23:9-25:39
+	android:exported
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/1c49ca6f3b680724b9df72e1a66bb6bb/transformed/ui-test-manifest-1.7.8/AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.7.8] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/1c49ca6f3b680724b9df72e1a66bb6bb/transformed/ui-test-manifest-1.7.8/AndroidManifest.xml:24:13-63
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/dongoh-kim/.gradle/caches/8.11.1/transforms/e57950eee3e72f3c39bab90f028e215d/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92
