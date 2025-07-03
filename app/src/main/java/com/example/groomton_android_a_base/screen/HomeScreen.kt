@@ -17,6 +17,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -33,18 +34,20 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.groomton_android_a_base.R
 import com.example.groomton_android_a_base.model.Feed
 import com.example.groomton_android_a_base.model.Story
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.example.groomton_android_a_base.sampledata.SampleDataProvider
+import com.example.groomton_android_a_base.viewmodel.FeedViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(stories: List<Story>, feeds: List<Feed>, modifier: Modifier = Modifier) {
+fun HomeScreen(stories: List<Story>, modifier: Modifier = Modifier) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(rememberTopAppBarState())
-
+    val feedViewModel: FeedViewModel = viewModel()
     Scaffold(
         modifier = modifier.fillMaxSize().nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
@@ -106,7 +109,7 @@ fun HomeScreen(stories: List<Story>, feeds: List<Feed>, modifier: Modifier = Mod
                     HorizontalDivider(modifier = Modifier.fillMaxWidth())
                 }
                 item {
-                    FeedSection(feeds = feeds)
+                    FeedSection(feedViewModel)
                 }
             }
         }
@@ -154,7 +157,9 @@ fun StoryCard(story: Story, modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun FeedSection(feeds: List<Feed>, modifier: Modifier = Modifier) {
+fun FeedSection(feedViewModel: FeedViewModel = viewModel(), modifier: Modifier = Modifier) {
+    val feeds = feedViewModel.feedList
+
     Column(
         modifier = modifier.fillMaxSize()
     ) {
@@ -167,9 +172,7 @@ fun FeedSection(feeds: List<Feed>, modifier: Modifier = Modifier) {
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun FeedCard(feed: Feed, modifier: Modifier = Modifier) {
-    Column(
-        modifier = modifier.fillMaxWidth()
-    ) {
+    val feedViewModel : FeedViewModel = viewModel()
         Row(
             modifier = modifier.fillMaxWidth().padding(vertical = 8.dp, horizontal = 16.dp),
             verticalAlignment = Alignment.CenterVertically,
@@ -220,13 +223,17 @@ fun FeedCard(feed: Feed, modifier: Modifier = Modifier) {
             Row(
                 verticalAlignment = Alignment.CenterVertically
             ){
-                IconButton(onClick = {})  {
+                IconButton(onClick = {feedViewModel.toggleLike(feed.id)})  {
                     Icon(
-                        painter = painterResource(R.drawable.ic_like),
+                        if (feed.isLiked) painterResource(R.drawable.ic_filled_like)
+                        else painterResource(R.drawable.ic_like),
                         contentDescription = null,
-                        modifier = Modifier.padding(8.dp)
+                        modifier = Modifier.padding(8.dp),
+                        tint = if(feed.isLiked) Color.Unspecified
+                        else LocalContentColor.current
                     )
                 }
+                Text("${feed.likeCount}")
                 IconButton(onClick = {})  {
                     Icon(
                         painter = painterResource(R.drawable.ic_comment),
@@ -243,9 +250,12 @@ fun FeedCard(feed: Feed, modifier: Modifier = Modifier) {
                     )
                 }
             }
-            IconButton(onClick = {})  {
+            IconButton(onClick = { feedViewModel.toggleBookmark(feed.id)
+
+            })  {
                 Icon(
-                    painter = painterResource(R.drawable.ic_bookmark),
+                    if (feed.isBookmarked) painterResource(R.drawable.ic_filled_bookmark)
+                    else painterResource(R.drawable.ic_bookmark),
                     contentDescription = null,
                     modifier = Modifier.padding(8.dp)
                 )
@@ -255,7 +265,6 @@ fun FeedCard(feed: Feed, modifier: Modifier = Modifier) {
             modifier = modifier.padding(8.dp))
         Text(feed.caption,
             modifier = modifier.padding(8.dp))
-    }
 }
 
 
@@ -264,5 +273,5 @@ fun FeedCard(feed: Feed, modifier: Modifier = Modifier) {
 @Preview(showBackground = true, name = "Home Screen Preview")
 @Composable
 fun HomeScreenPreview() {
-    HomeScreen(stories = SampleDataProvider.sampleStories, feeds = SampleDataProvider.allSampleFeeds)
+    HomeScreen(stories = SampleDataProvider.sampleStories)
 }

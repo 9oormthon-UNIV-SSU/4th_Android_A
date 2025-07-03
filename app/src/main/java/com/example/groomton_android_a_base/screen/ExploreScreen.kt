@@ -43,16 +43,16 @@ fun ExploreScreen(feeds : List<ExploreFeed>){
                 SearchBar()
             }
             items(feeds) {feed ->
-                val imageModifier = when(feed.size){
-                    1 -> Modifier.fillMaxWidth().aspectRatio(1f)
-                    2 -> Modifier.fillMaxWidth().aspectRatio(0.5f)
-                    else -> Modifier.fillMaxWidth().aspectRatio(1f)
+                val aspect = when(feed.size){
+                    1 -> 1f
+                    2 -> 0.5f
+                    else -> 1f
                 }
 
                 GlideImage(
                     model = feed.imageUrl,
                     contentDescription = null,
-                    modifier = imageModifier.fillMaxWidth().background(Color.Gray),
+                    modifier = Modifier.aspectRatio(aspect).fillMaxWidth().background(Color.Gray),
                     contentScale = ContentScale.Crop
                 )
             }

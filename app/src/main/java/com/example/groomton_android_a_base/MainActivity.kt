@@ -48,7 +48,7 @@ fun NavigationBar(modifier: Modifier = Modifier){
                 startDestination = "home",
                 modifier = Modifier.padding(innerPadding)
             ) {
-                composable("home"){HomeScreen(stories = sampleStories,feeds = allSampleFeeds)}
+                composable("home"){HomeScreen(stories = sampleStories)}
                 composable("explore"){ExploreScreen(feeds = sampleExploreFeeds)}
                 composable("reels"){ReelsScreen()}
                 composable("profile"){ProfileScreen()}
