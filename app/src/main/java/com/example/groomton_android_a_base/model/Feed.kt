@@ -9,5 +9,6 @@ data class Feed(
     var commentCount : Int,
     var isBookmarked : Boolean,
     var isLiked : Boolean = false,
-    var comments : List<Comment>
+    var comments : List<Comment>,
+    var isreels : Boolean
 )

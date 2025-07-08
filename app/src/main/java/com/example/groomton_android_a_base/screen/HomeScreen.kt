@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -26,7 +25,6 @@ import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
@@ -37,22 +35,23 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.groomton_android_a_base.R
 import com.example.groomton_android_a_base.model.Feed
-import com.example.groomton_android_a_base.model.Story
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
-import com.example.groomton_android_a_base.sampledata.SampleDataProvider
+import com.example.groomton_android_a_base.model.User
+import com.example.groomton_android_a_base.ui.component.homescreen.ProfileIcon
 import com.example.groomton_android_a_base.viewmodel.FeedViewModel
+import com.example.groomton_android_a_base.viewmodel.UserViewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(stories: List<Story>, modifier: Modifier = Modifier) {
+fun HomeScreen(modifier: Modifier = Modifier) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(rememberTopAppBarState())
-    val feedViewModel: FeedViewModel = viewModel()
     Scaffold(
         modifier = modifier.fillMaxSize().nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             TopAppBar(
-                modifier = modifier.padding(start = 10.dp, end = 5.dp, top = 5.dp),
+                modifier = modifier.padding(start = 10.dp, end = 5.dp),
                 title = {
                     Icon(
                         painter = painterResource(R.drawable.ic_instagram),
@@ -100,24 +99,22 @@ fun HomeScreen(stories: List<Story>, modifier: Modifier = Modifier) {
                 .padding(innerPadding)
                 .fillMaxSize()
         ) {
-            if (stories.isNotEmpty()) {
-                item {
-
-                    StoriesSection(stories = stories)
-                }
-                item {
-                    HorizontalDivider(modifier = Modifier.fillMaxWidth())
-                }
-                item {
-                    FeedSection(feedViewModel)
-                }
+            item {
+                StoriesSection()
+            }
+            item {
+                HorizontalDivider(modifier = Modifier.fillMaxWidth())
+            }
+            item {
+                FeedSection()
             }
         }
     }
 }
 
 @Composable
-fun StoriesSection(stories: List<Story>, modifier: Modifier = Modifier) {
+fun StoriesSection(modifier: Modifier = Modifier) {
+    val userViewModel: UserViewModel = hiltViewModel()
     LazyRow(
         modifier = modifier
             .fillMaxWidth()
@@ -125,146 +122,134 @@ fun StoriesSection(stories: List<Story>, modifier: Modifier = Modifier) {
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         contentPadding = PaddingValues(horizontal = 16.dp)
     ) {
-        items(stories.size) { index ->
-            StoryCard(story = stories[index])
+        var users = userViewModel.userList
+        items(users.size) { index ->
+            if (users[index].hasStory)
+                StoryCard(user = users[index], userViewModel= userViewModel)
         }
     }
 }
 
-@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun StoryCard(story: Story, modifier: Modifier = Modifier) {
+fun StoryCard(user: User, userViewModel: UserViewModel, modifier: Modifier = Modifier) {
     Column(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         IconButton(
-            onClick = {},
+            onClick = {userViewModel.toggleUserStoryState(user.id)},
             modifier = Modifier.size(80.dp)
         ) {
-            GlideImage(
-                model = story.user.ProfilPictureUrl,
-                contentDescription = "${story.user.name}'s story",
-                modifier = Modifier
-                    .size(64.dp)
-                    .clip(CircleShape)
-                    .fillMaxSize().background(Color.Gray), // 로딩 중 배경 및 원형 모양
-                contentScale = ContentScale.Crop,
-            )
+            ProfileIcon(user = user)
         }
-        Text(text = story.user.name)
+        Text(text = user.name)
     }
 }
 
 @Composable
-fun FeedSection(feedViewModel: FeedViewModel = viewModel(), modifier: Modifier = Modifier) {
+fun FeedSection(modifier: Modifier = Modifier) {
+    val feedViewModel: FeedViewModel = hiltViewModel()
     val feeds = feedViewModel.feedList
 
     Column(
         modifier = modifier.fillMaxSize()
     ) {
         feeds.forEach { feed ->
-            FeedCard(feed = feed)
+            FeedCard(feed = feed,feedViewModel= feedViewModel)
         }
     }
 }
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun FeedCard(feed: Feed, modifier: Modifier = Modifier) {
-    val feedViewModel : FeedViewModel = viewModel()
-        Row(
-            modifier = modifier.fillMaxWidth().padding(vertical = 8.dp, horizontal = 16.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(5.dp),
-            ) {
-                IconButton(
-                    onClick = {}
-                ) {
-                    GlideImage( // 예시: GlideImage 사용
-                        model = feed.user.ProfilPictureUrl, // 실제 프로필 이미지 URL
-                        contentDescription = "${feed.user.name}'s story",
-                        modifier = Modifier
-                            .size(64.dp) // 적절한 크기 지정
-                            .clip(CircleShape).background(Color.Gray), // 로딩 중 배경 및 원형 모양
-                        contentScale = ContentScale.Crop
-                    )
-                }
-                Text(text = feed.user.name,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.align(Alignment.CenterVertically,
-                        )
-                )
-            }
-            IconButton( onClick = {}) {
-                Icon(
-                    painter = painterResource(R.drawable.ic_viewmore_dots),
-                    contentDescription = null
-                )
-            }
-        }
-        GlideImage(
-            model = feed.imageUrl,
-            contentDescription = null,
-            modifier = modifier
-                .fillMaxSize()
-                .aspectRatio(1f)
-                .background(Color.Gray), // 1ㄷ1 비율
-            contentScale = ContentScale.Crop //이미지 비율 맞게 자름
-        )
-        Row(
-            modifier = modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
-        ){
-            Row(
-                verticalAlignment = Alignment.CenterVertically
-            ){
-                IconButton(onClick = {feedViewModel.toggleLike(feed.id)})  {
-                    Icon(
-                        if (feed.isLiked) painterResource(R.drawable.ic_filled_like)
-                        else painterResource(R.drawable.ic_like),
-                        contentDescription = null,
-                        modifier = Modifier.padding(8.dp),
-                        tint = if(feed.isLiked) Color.Unspecified
-                        else LocalContentColor.current
-                    )
-                }
-                Text("${feed.likeCount}")
-                IconButton(onClick = {})  {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_comment),
-                        contentDescription = null,
-                        modifier = Modifier.padding(8.dp)
-                    )
-                }
-                Text("${feed.commentCount}")
-                IconButton(onClick = {})  {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_share),
-                        contentDescription = null,
-                        modifier = Modifier.padding(8.dp)
-                    )
-                }
-            }
-            IconButton(onClick = { feedViewModel.toggleBookmark(feed.id)
+fun FeedCard(feed: Feed,feedViewModel: FeedViewModel, modifier: Modifier = Modifier) {
+    val userViewModel : UserViewModel = hiltViewModel()
 
-            })  {
+    Row(
+        modifier = modifier.fillMaxWidth().padding(vertical = 8.dp, horizontal = 16.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(5.dp),
+        ) {
+            IconButton(
+                onClick = {userViewModel.toggleUserStoryState(feed.user.id)}
+            ) {
+                ProfileIcon(feed.user)
+            }
+            Text(text = feed.user.name,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.align(Alignment.CenterVertically,
+                    )
+            )
+        }
+        IconButton( onClick = {}) {
+            Icon(
+                painter = painterResource(R.drawable.ic_viewmore_dots),
+                contentDescription = null
+            )
+        }
+    }
+    GlideImage(
+        model = feed.imageUrl,
+        contentDescription = null,
+        modifier = modifier
+            .fillMaxSize()
+            .aspectRatio(1f)
+            .background(Color.Gray), // 1ㄷ1 비율
+        contentScale = ContentScale.Crop //이미지 비율 맞게 자름
+    )
+    Row(
+        modifier = modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
+    ){
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ){
+            IconButton(onClick = {feedViewModel.toggleLike(feed.id)})  {
                 Icon(
-                    if (feed.isBookmarked) painterResource(R.drawable.ic_filled_bookmark)
-                    else painterResource(R.drawable.ic_bookmark),
+                    if (feed.isLiked) painterResource(R.drawable.ic_filled_like)
+                    else painterResource(R.drawable.ic_like),
+                    contentDescription = null,
+                    modifier = Modifier.padding(8.dp),
+                    tint = if(feed.isLiked) Color.Unspecified
+                    else LocalContentColor.current
+                )
+            }
+            Text("${feed.likeCount}")
+            IconButton(onClick = {})  {
+                Icon(
+                    painter = painterResource(R.drawable.ic_comment),
+                    contentDescription = null,
+                    modifier = Modifier.padding(8.dp)
+                )
+            }
+            Text("${feed.commentCount}")
+            IconButton(onClick = {})  {
+                Icon(
+                    painter = painterResource(R.drawable.ic_share),
                     contentDescription = null,
                     modifier = Modifier.padding(8.dp)
                 )
             }
         }
-        Text("Liked by ${feed.user.name} and ${feed.likeCount} others",
-            modifier = modifier.padding(8.dp))
-        Text(feed.caption,
-            modifier = modifier.padding(8.dp))
+        IconButton(onClick = { feedViewModel.toggleBookmark(feed.id)
+
+        })  {
+            Icon(
+                if (feed.isBookmarked) painterResource(R.drawable.ic_filled_bookmark)
+                else painterResource(R.drawable.ic_bookmark),
+                contentDescription = null,
+                modifier = Modifier.padding(8.dp)
+            )
+        }
+    }
+    Text("Liked by ${feed.user.name} and ${feed.likeCount} others",
+        modifier = modifier.padding(8.dp))
+    Text(feed.caption,
+        modifier = modifier.padding(8.dp))
 }
 
 
@@ -273,5 +258,5 @@ fun FeedCard(feed: Feed, modifier: Modifier = Modifier) {
 @Preview(showBackground = true, name = "Home Screen Preview")
 @Composable
 fun HomeScreenPreview() {
-    HomeScreen(stories = SampleDataProvider.sampleStories)
+    HomeScreen()
 }
