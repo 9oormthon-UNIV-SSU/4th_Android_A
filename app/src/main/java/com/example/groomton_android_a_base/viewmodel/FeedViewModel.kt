@@ -9,7 +9,6 @@ import com.example.groomton_android_a_base.model.Feed
 import com.example.groomton_android_a_base.model.User
 import com.example.groomton_android_a_base.sampledata.SampleDataProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch

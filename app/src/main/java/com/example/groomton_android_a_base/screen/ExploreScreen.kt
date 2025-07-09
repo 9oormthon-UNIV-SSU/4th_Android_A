@@ -11,13 +11,12 @@ import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridItemSpan
 import androidx.compose.foundation.lazy.staggeredgrid.items
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Search
-import androidx.compose.material3.Icon
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -27,10 +26,12 @@ import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.example.groomton_android_a_base.model.ExploreFeed
 import com.example.groomton_android_a_base.sampledata.SampleDataProvider
+import com.example.groomton_android_a_base.ui.component.ExploreScreen.SearchBar
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun ExploreScreen(feeds : List<ExploreFeed>){
+    var query by rememberSaveable { mutableStateOf("") }
 
     Scaffold {innerPadding ->
         LazyVerticalStaggeredGrid (
@@ -40,7 +41,7 @@ fun ExploreScreen(feeds : List<ExploreFeed>){
             horizontalArrangement = Arrangement.spacedBy(1.dp)
         ) {
             item(span = StaggeredGridItemSpan.FullLine){
-                SearchBar()
+                SearchBar(query = query, onQueryChange = {query = it})
             }
             items(feeds) {feed ->
                 val aspect = when(feed.size){
@@ -59,20 +60,6 @@ fun ExploreScreen(feeds : List<ExploreFeed>){
         }
     }
 }
-
-@Composable
-fun SearchBar() {
-    OutlinedTextField(
-        value = "",
-        onValueChange = {},
-        placeholder = { Text("Search") },
-        leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp)
-    )
-}
-
 
 
 @Preview(showBackground = true, widthDp = 360, heightDp = 730)
