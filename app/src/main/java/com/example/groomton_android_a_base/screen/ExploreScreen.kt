@@ -33,6 +33,9 @@ import com.example.groomton_android_a_base.ui.component.ExploreScreen.SearchBar
 fun ExploreScreen(feeds : List<ExploreFeed>){
     var query by rememberSaveable { mutableStateOf("") }
 
+    var filteredFeeds = if (query.isEmpty()) feeds else feeds.filter {
+        it.user.name.contains(query, ignoreCase = true)
+    }
     Scaffold {innerPadding ->
         LazyVerticalStaggeredGrid (
             columns = StaggeredGridCells.Fixed(3),
@@ -43,7 +46,7 @@ fun ExploreScreen(feeds : List<ExploreFeed>){
             item(span = StaggeredGridItemSpan.FullLine){
                 SearchBar(query = query, onQueryChange = {query = it})
             }
-            items(feeds) {feed ->
+            items(filteredFeeds) {feed ->
                 val aspect = when(feed.size){
                     1 -> 1f
                     2 -> 0.5f
