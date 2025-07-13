@@ -41,19 +41,22 @@ fun ProfileIcon(
         modifier = modifier
             .size(iconSize)
             .let {
-                if (user.hasUnseenStory) {
-                    it.border(
-                        width = storyBorderWidth,
-                        brush = instagramGradient,
-                        shape = CircleShape
-                    )
-                } else {
-                    it.border(
-                        width = storyBorderWidth,
-                        color = seenStoryColor,
-                        shape = CircleShape
-                    )
+                if (user.hasStory) {
+                    if (user.hasUnseenStory) {
+                        it.border(
+                            width = storyBorderWidth,
+                            brush = instagramGradient,
+                            shape = CircleShape
+                        )
+                    } else {
+                        it.border(
+                            width = storyBorderWidth,
+                            color = seenStoryColor,
+                            shape = CircleShape
+                        )
+                    }
                 }
+                else it
             }
             .padding(
                 if (user.hasUnseenStory)

@@ -49,7 +49,7 @@ fun NavigationBar(modifier: Modifier = Modifier){
                 modifier = Modifier.padding(innerPadding)
             ) {
                 composable("home"){HomeScreen()}
-                composable("explore"){ExploreScreen(feeds = sampleExploreFeeds)}
+                composable("explore"){ExploreScreen(navController = navController, feeds = sampleExploreFeeds)}
                 composable("reels"){ReelsScreen()}
                 composable("profile"){ProfileScreen()}
             }

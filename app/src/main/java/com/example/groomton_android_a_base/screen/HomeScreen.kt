@@ -175,7 +175,7 @@ fun FeedCard(feed: Feed,feedViewModel: FeedViewModel, modifier: Modifier = Modif
             IconButton(
                 onClick = {userViewModel.toggleUserStoryState(feed.user.id)}
             ) {
-                ProfileIcon(feed.user)
+                ProfileIcon(feed.user, storyBorderWidth = 2.5.dp)
             }
             Text(text = feed.user.name,
                 fontWeight = FontWeight.Bold,
