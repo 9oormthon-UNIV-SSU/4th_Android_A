@@ -89,6 +89,10 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         }
                     }
                 },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = Color.White,
+                    scrolledContainerColor = Color.White
+                ),
                 scrollBehavior = scrollBehavior
             )
         }
