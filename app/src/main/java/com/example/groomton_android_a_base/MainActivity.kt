@@ -19,10 +19,10 @@ import com.example.groomton_android_a_base.screen.HomeScreen
 import com.example.groomton_android_a_base.screen.ProfileScreen
 import com.example.groomton_android_a_base.screen.ReelsScreen
 import com.example.groomton_android_a_base.ui.component.BottomBar
-import com.example.groomton_android_a_base.sampledata.SampleDataProvider.allSampleFeeds
 import com.example.groomton_android_a_base.sampledata.SampleDataProvider.sampleExploreFeeds
-import com.example.groomton_android_a_base.sampledata.SampleDataProvider.sampleStories
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,8 +48,8 @@ fun NavigationBar(modifier: Modifier = Modifier){
                 startDestination = "home",
                 modifier = Modifier.padding(innerPadding)
             ) {
-                composable("home"){HomeScreen(stories = sampleStories,feeds = allSampleFeeds)}
-                composable("explore"){ExploreScreen(feeds = sampleExploreFeeds)}
+                composable("home"){HomeScreen()}
+                composable("explore"){ExploreScreen(navController = navController, feeds = sampleExploreFeeds)}
                 composable("reels"){ReelsScreen()}
                 composable("profile"){ProfileScreen()}
             }

@@ -7,5 +7,7 @@ data class User (
     val followings : Int,
     val Posts : Int,
     val ProfilPictureUrl : String,
-    val hasUnseenStory : Boolean
+    val hasStory : Boolean,
+    val hasUnseenStory : Boolean,
+    val story: Story
     )
