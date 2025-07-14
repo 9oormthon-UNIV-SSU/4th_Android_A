@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.groomton_android_a_base.Repository.SharedRepository
 import com.example.groomton_android_a_base.model.Feed
-import com.example.groomton_android_a_base.model.User
 import com.example.groomton_android_a_base.sampledata.SampleDataProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -32,47 +31,19 @@ class FeedViewModel @Inject constructor(private val sharedRepository: SharedRepo
         viewModelScope.launch {
             snapshotFlow { sharedRepository.userList.toList() } // toList()로 복사본을 Flow로 보내야 변경 감지가 용이
                 .onEach { updatedUserList ->
-                    updateFeedsWithNewUsers(updatedUserList)
+                    sharedRepository.updateFeedsWithNewUsers(updatedUserList)
                 }
                 .launchIn(this) // viewModelScope 내에서 Flow 수집
         }
     }
 
     fun toggleLike(feedId : String){
-        val index = _feedList.indexOfFirst { it.id == feedId }
-
-        if (index != -1){
-            val currentFeed = _feedList[index]
-            val newLikeState = !currentFeed.isLiked
-            val newLikeCount = if (currentFeed.isLiked) currentFeed.likeCount - 1 else currentFeed.likeCount + 1
-            _feedList[index] = currentFeed.copy(isLiked = newLikeState, likeCount = newLikeCount)
-        }
+        sharedRepository.toggleLike(feedId)
     }
 
     fun toggleBookmark(feedId: String){
-        val index = _feedList.indexOfFirst { it.id == feedId }
-
-        if (index != -1){
-            val currentFeed = _feedList[index]
-            val newBookmarkState = !currentFeed.isBookmarked
-            _feedList[index] = currentFeed.copy(isBookmarked = newBookmarkState)
-        }
+        sharedRepository.toggleBookmark(feedId)
     }
 
-    private fun updateFeedsWithNewUsers(updatedUserList: List<User>) {
-        val newFeeds = _feedList.map { currentFeed ->
-            updatedUserList.find { it.id == currentFeed.user.id }?.let { freshUser ->
-                currentFeed.copy(user = freshUser)
-            } ?: currentFeed
-        }
-
-        val currentFeedsSet = _feedList.toSet() //Set은 중복을 허용 안하고, 순서가 중요하지 않음 -> 같은지 비교할 때 유용
-        val newFeedsSet = newFeeds.toSet()
-
-        if (currentFeedsSet != newFeedsSet) {
-            _feedList.clear()
-            _feedList.addAll(newFeeds)
-        }
-    }
 
 }
