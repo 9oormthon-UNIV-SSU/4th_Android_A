@@ -64,7 +64,7 @@ fun ExploreScreen(navController: NavController, feeds : List<ExploreFeed>){
                         .clickable {
                             navController.navigate("feed_detail/${exploreFeed.feed.id}")
                         },
-                    contentScale = ContentScale.Crop
+                    contentScale = ContentScale.Crop,
                 )
             }
         }

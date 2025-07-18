@@ -1,7 +1,5 @@
 package com.example.groomton_android_a_base.screen
 
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -12,19 +10,16 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.TextUnitType
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.groomton_android_a_base.R
-import com.example.groomton_android_a_base.model.ExploreFeed
+import com.example.groomton_android_a_base.sampledata.SampleDataProvider
 import com.example.groomton_android_a_base.viewmodel.FeedViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FeedDetailScreen(navController: NavController, exploreFeed: ExploreFeed) {
-
+fun feedDetailScreen(navController: NavController, exploreFeedId: String) {
     val feedViewModel: FeedViewModel = hiltViewModel()
-
     Scaffold(
         topBar = {
             TopAppBar(
@@ -42,5 +37,12 @@ fun FeedDetailScreen(navController: NavController, exploreFeed: ExploreFeed) {
             )
         }
     ) { innerpadding ->
-        FeedCard(exploreFeed.feed, feedViewModel, modifier = Modifier.padding(innerpadding)) }
+        val exploreFeed = SampleDataProvider.sampleExploreFeeds.find {
+            it.feed.id == exploreFeedId
+        }
+        if (exploreFeed != null)
+            FeedCard(exploreFeed.feed, feedViewModel, modifier = Modifier.padding(innerpadding))
+        else Text("탐색 피드를 찾을 수 없습니다 : $exploreFeedId")
+    }
+
 }

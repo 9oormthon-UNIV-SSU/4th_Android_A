@@ -14,6 +14,7 @@ import com.example.groomton_android_a_base.ui.theme.GroomTon_Android_A_BaseTheme
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.groomton_android_a_base.model.AppNavHost
 import com.example.groomton_android_a_base.screen.ExploreScreen
 import com.example.groomton_android_a_base.screen.HomeScreen
 import com.example.groomton_android_a_base.screen.ProfileScreen
@@ -43,16 +44,11 @@ fun NavigationBar(modifier: Modifier = Modifier){
         modifier = modifier,
         bottomBar = { BottomBar(navController) },
         content = { innerPadding ->
-            NavHost(
+            AppNavHost(
                 navController = navController,
                 startDestination = "home",
                 modifier = Modifier.padding(innerPadding)
-            ) {
-                composable("home"){HomeScreen()}
-                composable("explore"){ExploreScreen(navController = navController, feeds = sampleExploreFeeds)}
-                composable("reels"){ReelsScreen()}
-                composable("profile"){ProfileScreen()}
-            }
+            )
         }
     )
 }
