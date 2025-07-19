@@ -47,7 +47,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 fun HomeScreen(modifier: Modifier = Modifier) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(rememberTopAppBarState())
     Scaffold(
-        modifier = modifier.fillMaxSize().nestedScroll(scrollBehavior.nestedScrollConnection),
+        modifier = modifier
+            .fillMaxSize()
+            .nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             TopAppBar(
                 modifier = modifier.padding(start = 10.dp, end = 5.dp),
@@ -168,91 +170,102 @@ fun FeedSection(modifier: Modifier = Modifier) {
 fun FeedCard(feed: Feed,feedViewModel: FeedViewModel, modifier: Modifier = Modifier) {
     val userViewModel : UserViewModel = hiltViewModel()
 
-    Row(
-        modifier = modifier.fillMaxWidth().padding(vertical = 8.dp, horizontal = 16.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween
-    ) {
+    Column(modifier = modifier) {
         Row(
-            horizontalArrangement = Arrangement.spacedBy(5.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp, horizontal = 16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            IconButton(
-                onClick = {userViewModel.toggleUserStoryState(feed.user.id)}
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(5.dp),
             ) {
-                ProfileIcon(feed.user, storyBorderWidth = 2.5.dp)
-            }
-            Text(text = feed.user.name,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.align(Alignment.CenterVertically,
+                IconButton(
+                    onClick = { userViewModel.toggleUserStoryState(feed.user.id) }
+                ) {
+                    ProfileIcon(feed.user, storyBorderWidth = 2.5.dp)
+                }
+                Text(
+                    text = feed.user.name,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.align(
+                        Alignment.CenterVertically,
                     )
-            )
+                )
+            }
+            IconButton(onClick = {}) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_viewmore_dots),
+                    contentDescription = null
+                )
+            }
         }
-        IconButton( onClick = {}) {
-            Icon(
-                painter = painterResource(R.drawable.ic_viewmore_dots),
-                contentDescription = null
-            )
-        }
-    }
-    GlideImage(
-        model = feed.imageUrl,
-        contentDescription = null,
-        modifier = modifier
-            .fillMaxSize()
-            .aspectRatio(1f)
-            .background(Color.Gray), // 1ㄷ1 비율
-        contentScale = ContentScale.Crop //이미지 비율 맞게 자름
-    )
-    Row(
-        modifier = modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween
-    ){
+        GlideImage(
+            model = feed.imageUrl,
+            contentDescription = null,
+            modifier = modifier
+                .fillMaxSize()
+                .aspectRatio(1f)
+                .background(Color.Gray), // 1ㄷ1 비율
+            contentScale = ContentScale.Crop //이미지 비율 맞게 자름
+        )
         Row(
-            verticalAlignment = Alignment.CenterVertically
-        ){
-            IconButton(onClick = {feedViewModel.toggleLike(feed.id)})  {
-                Icon(
-                    if (feed.isLiked) painterResource(R.drawable.ic_filled_like)
-                    else painterResource(R.drawable.ic_like),
-                    contentDescription = null,
-                    modifier = Modifier.padding(8.dp),
-                    tint = if(feed.isLiked) Color.Unspecified
-                    else LocalContentColor.current
-                )
+            modifier = modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                IconButton(onClick = { feedViewModel.toggleLike(feed.id) }) {
+                    Icon(
+                        if (feed.isLiked) painterResource(R.drawable.ic_filled_like)
+                        else painterResource(R.drawable.ic_like),
+                        contentDescription = null,
+                        modifier = Modifier.padding(8.dp),
+                        tint = if (feed.isLiked) Color.Unspecified
+                        else LocalContentColor.current
+                    )
+                }
+                Text("${feed.likeCount}")
+                IconButton(onClick = {}) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_comment),
+                        contentDescription = null,
+                        modifier = Modifier.padding(8.dp)
+                    )
+                }
+                Text("${feed.commentCount}")
+                IconButton(onClick = {}) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_share),
+                        contentDescription = null,
+                        modifier = Modifier.padding(8.dp)
+                    )
+                }
             }
-            Text("${feed.likeCount}")
-            IconButton(onClick = {})  {
-                Icon(
-                    painter = painterResource(R.drawable.ic_comment),
-                    contentDescription = null,
-                    modifier = Modifier.padding(8.dp)
-                )
-            }
-            Text("${feed.commentCount}")
-            IconButton(onClick = {})  {
-                Icon(
-                    painter = painterResource(R.drawable.ic_share),
-                    contentDescription = null,
-                    modifier = Modifier.padding(8.dp)
-                )
-            }
-        }
-        IconButton(onClick = { feedViewModel.toggleBookmark(feed.id)
+            IconButton(onClick = {
+                feedViewModel.toggleBookmark(feed.id)
 
-        })  {
-            Icon(
-                if (feed.isBookmarked) painterResource(R.drawable.ic_filled_bookmark)
-                else painterResource(R.drawable.ic_bookmark),
-                contentDescription = null,
-                modifier = Modifier.padding(8.dp)
-            )
+            }) {
+                Icon(
+                    if (feed.isBookmarked) painterResource(R.drawable.ic_filled_bookmark)
+                    else painterResource(R.drawable.ic_bookmark),
+                    contentDescription = null,
+                    modifier = Modifier.padding(8.dp)
+                )
+            }
         }
+        Text(
+            "Liked by ${feed.user.name} and ${feed.likeCount} others",
+            modifier = modifier.padding(8.dp)
+        )
+        Text(
+            feed.caption,
+            modifier = modifier.padding(8.dp)
+        )
     }
-    Text("Liked by ${feed.user.name} and ${feed.likeCount} others",
-        modifier = modifier.padding(8.dp))
-    Text(feed.caption,
-        modifier = modifier.padding(8.dp))
 }
 
 

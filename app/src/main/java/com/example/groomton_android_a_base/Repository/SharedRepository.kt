@@ -1,6 +1,7 @@
 package com.example.groomton_android_a_base.Repository
 
 import androidx.compose.runtime.snapshots.SnapshotStateList
+import com.example.groomton_android_a_base.model.ExploreFeed
 import com.example.groomton_android_a_base.model.Feed
 import com.example.groomton_android_a_base.model.User
 import com.example.groomton_android_a_base.sampledata.SampleDataProvider
@@ -15,6 +16,9 @@ class SharedRepository @Inject constructor() {
     private val _feedList = SnapshotStateList<Feed>()
     val feedList : SnapshotStateList<Feed> = _feedList
 
+    private val _exploreFeedList = SnapshotStateList<ExploreFeed>()
+    val exploreFeedList : SnapshotStateList<ExploreFeed> = _exploreFeedList
+
     init {
         _userList.addAll(SampleDataProvider.sampleUsers.map {
             it.copy(hasUnseenStory = it.hasStory)
@@ -24,6 +28,17 @@ class SharedRepository @Inject constructor() {
             feed ->
             val initialUser = _userList.find{it.id == feed.user.id} ?: feed.user
             feed.copy(user = initialUser)
+        })
+
+        _exploreFeedList.addAll(SampleDataProvider.sampleExploreFeeds.map {
+            exploreFeed ->
+            val initialUser = _userList.find{it.id == exploreFeed.user.id} ?: exploreFeed.user
+            val updatedExploreFeed = exploreFeed.feed.copy(
+                user = _userList.find { it.id == exploreFeed.feed.user.id } ?: exploreFeed.feed.user
+            )
+            exploreFeed.copy(
+                user = initialUser, feed = updatedExploreFeed
+            )
         })
     }
 
@@ -60,6 +75,7 @@ class SharedRepository @Inject constructor() {
     }
 
     fun updateFeedsWithNewUsers(updatedUserList: List<User>) {
+        //Feed 업데이트
         val newFeeds = _feedList.map { currentFeed ->
             updatedUserList.find { it.id == currentFeed.user.id }?.let { freshUser ->
                 currentFeed.copy(user = freshUser)
@@ -72,6 +88,19 @@ class SharedRepository @Inject constructor() {
         if (currentFeedsSet != newFeedsSet) {
             _feedList.clear()
             _feedList.addAll(newFeeds)
+        }
+
+        //ExploreFeed 업데이트
+        val newExploreFeeds = _exploreFeedList.map { currentExploreFeed ->
+            val updatedExploreFeedUser = updatedUserList.find { it.id == currentExploreFeed.user.id } ?: currentExploreFeed.user
+
+            val updatedFeedUser = updatedUserList.find { it.id == currentExploreFeed.feed.user.id } ?: currentExploreFeed.feed.user
+            val updatedInternalFeed = currentExploreFeed.feed.copy(user = updatedFeedUser)
+            currentExploreFeed.copy(user = updatedExploreFeedUser, feed = updatedInternalFeed)
+        }
+        if(_exploreFeedList.toList() != newExploreFeeds){
+            _exploreFeedList.clear()
+            _exploreFeedList.addAll(newExploreFeeds)
         }
     }
 }

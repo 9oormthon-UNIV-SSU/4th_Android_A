@@ -14,12 +14,15 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.groomton_android_a_base.R
 import com.example.groomton_android_a_base.sampledata.SampleDataProvider
+import com.example.groomton_android_a_base.viewmodel.ExploreFeedViewModel
 import com.example.groomton_android_a_base.viewmodel.FeedViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun feedDetailScreen(navController: NavController, exploreFeedId: String) {
     val feedViewModel: FeedViewModel = hiltViewModel()
+    val exploreFeedViewModel: ExploreFeedViewModel = hiltViewModel()
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -37,7 +40,7 @@ fun feedDetailScreen(navController: NavController, exploreFeedId: String) {
             )
         }
     ) { innerpadding ->
-        val exploreFeed = SampleDataProvider.sampleExploreFeeds.find {
+        val exploreFeed = exploreFeedViewModel.exploreFeedList.find {
             it.feed.id == exploreFeedId
         }
         if (exploreFeed != null)
