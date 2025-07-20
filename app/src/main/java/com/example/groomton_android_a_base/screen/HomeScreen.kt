@@ -41,6 +41,7 @@ import com.example.groomton_android_a_base.ui.component.homescreen.ProfileIcon
 import com.example.groomton_android_a_base.viewmodel.FeedViewModel
 import com.example.groomton_android_a_base.viewmodel.UserViewModel
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.groomton_android_a_base.viewmodel.ExploreFeedViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -169,6 +170,7 @@ fun FeedSection(modifier: Modifier = Modifier) {
 @Composable
 fun FeedCard(feed: Feed,feedViewModel: FeedViewModel, modifier: Modifier = Modifier) {
     val userViewModel : UserViewModel = hiltViewModel()
+    val exploreFeedViewModel: ExploreFeedViewModel = hiltViewModel()
 
     Column(modifier = modifier) {
         Row(
@@ -218,7 +220,8 @@ fun FeedCard(feed: Feed,feedViewModel: FeedViewModel, modifier: Modifier = Modif
             Row(
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                IconButton(onClick = { feedViewModel.toggleLike(feed.id) }) {
+                IconButton(onClick = {
+                    feedViewModel.toggleLike(feed.id) }) {
                     Icon(
                         if (feed.isLiked) painterResource(R.drawable.ic_filled_like)
                         else painterResource(R.drawable.ic_like),
@@ -247,6 +250,7 @@ fun FeedCard(feed: Feed,feedViewModel: FeedViewModel, modifier: Modifier = Modif
             }
             IconButton(onClick = {
                 feedViewModel.toggleBookmark(feed.id)
+
 
             }) {
                 Icon(

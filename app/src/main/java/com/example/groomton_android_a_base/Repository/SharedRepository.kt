@@ -54,23 +54,28 @@ class SharedRepository @Inject constructor() {
     }
 
     fun toggleLike(feedId : String){
-        val index = _feedList.indexOfFirst { it.id == feedId }
+        val feed_index = _feedList.indexOfFirst { it.id == feedId }
+        val exploreFeed_index = _exploreFeedList.indexOfFirst { it.feed.id == feedId }
 
-        if (index != -1){
-            val currentFeed = _feedList[index]
+        if (feed_index != -1){
+            val currentFeed = _feedList[feed_index]
             val newLikeState = !currentFeed.isLiked
             val newLikeCount = if (currentFeed.isLiked) currentFeed.likeCount - 1 else currentFeed.likeCount + 1
-            _feedList[index] = currentFeed.copy(isLiked = newLikeState, likeCount = newLikeCount)
+            _feedList[feed_index] = currentFeed.copy(isLiked = newLikeState, likeCount = newLikeCount)
+            _exploreFeedList[exploreFeed_index] = _exploreFeedList[exploreFeed_index].copy(feed = _feedList[feed_index])
+
         }
     }
 
     fun toggleBookmark(feedId: String){
-        val index = _feedList.indexOfFirst { it.id == feedId }
+        val feed_index = _feedList.indexOfFirst { it.id == feedId }
+        val exploreFeed_index = _exploreFeedList.indexOfFirst { it.feed.id == feedId }
 
-        if (index != -1){
-            val currentFeed = _feedList[index]
+        if (feed_index != -1){
+            val currentFeed = _feedList[feed_index]
             val newBookmarkState = !currentFeed.isBookmarked
-            _feedList[index] = currentFeed.copy(isBookmarked = newBookmarkState)
+            _feedList[feed_index] = currentFeed.copy(isBookmarked = newBookmarkState)
+            _exploreFeedList[exploreFeed_index] = _exploreFeedList[exploreFeed_index].copy(feed = _feedList[feed_index])
         }
     }
 
