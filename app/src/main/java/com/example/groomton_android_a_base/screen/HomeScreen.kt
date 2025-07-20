@@ -127,7 +127,7 @@ fun StoriesSection(modifier: Modifier = Modifier) {
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         contentPadding = PaddingValues(horizontal = 16.dp)
     ) {
-        var users = userViewModel.userList
+        val users = userViewModel.userList
         items(users.size) { index ->
             if (users[index].hasStory)
                 StoryCard(user = users[index], userViewModel= userViewModel)
@@ -204,14 +204,14 @@ fun FeedCard(feed: Feed,feedViewModel: FeedViewModel, modifier: Modifier = Modif
         GlideImage(
             model = feed.imageUrl,
             contentDescription = null,
-            modifier = modifier
-                .fillMaxSize()
+            modifier = Modifier
+                .fillMaxWidth()
                 .aspectRatio(1f)
                 .background(Color.Gray), // 1ㄷ1 비율
             contentScale = ContentScale.Crop //이미지 비율 맞게 자름
         )
         Row(
-            modifier = modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
@@ -259,11 +259,11 @@ fun FeedCard(feed: Feed,feedViewModel: FeedViewModel, modifier: Modifier = Modif
         }
         Text(
             "Liked by ${feed.user.name} and ${feed.likeCount} others",
-            modifier = modifier.padding(8.dp)
+            modifier = Modifier.padding(8.dp)
         )
         Text(
             feed.caption,
-            modifier = modifier.padding(8.dp)
+            modifier = Modifier.padding(8.dp)
         )
     }
 }

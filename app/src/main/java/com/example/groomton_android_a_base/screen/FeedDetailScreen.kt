@@ -10,10 +10,11 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.groomton_android_a_base.R
-import com.example.groomton_android_a_base.sampledata.SampleDataProvider
 import com.example.groomton_android_a_base.viewmodel.ExploreFeedViewModel
 import com.example.groomton_android_a_base.viewmodel.FeedViewModel
 
