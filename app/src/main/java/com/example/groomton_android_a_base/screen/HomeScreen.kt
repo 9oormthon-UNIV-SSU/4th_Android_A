@@ -17,12 +17,18 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -41,12 +47,23 @@ import com.example.groomton_android_a_base.ui.component.homescreen.ProfileIcon
 import com.example.groomton_android_a_base.viewmodel.FeedViewModel
 import com.example.groomton_android_a_base.viewmodel.UserViewModel
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.groomton_android_a_base.ui.component.homescreen.BottomSheet
 import com.example.groomton_android_a_base.viewmodel.ExploreFeedViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(rememberTopAppBarState())
+
+    val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+    var selectedFeedForComments by remember { mutableStateOf<Feed?>(null) }
+    val onCommentIconClick : (Feed) -> Unit = { feed ->
+        selectedFeedForComments = feed
+    }
+    val dismissBottomSheet : () -> Unit = {
+        selectedFeedForComments = null
+    }
+
     Scaffold(
         modifier = modifier
             .fillMaxSize()
@@ -112,10 +129,11 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 HorizontalDivider(modifier = Modifier.fillMaxWidth())
             }
             item {
-                FeedSection()
+                FeedSection(onCommentIconClick = onCommentIconClick)
             }
         }
     }
+    BottomSheet(feed = selectedFeedForComments, sheetState = sheetState, onDismiss = dismissBottomSheet)
 }
 
 @Composable
@@ -153,7 +171,7 @@ fun StoryCard(user: User, userViewModel: UserViewModel, modifier: Modifier = Mod
 }
 
 @Composable
-fun FeedSection(modifier: Modifier = Modifier) {
+fun FeedSection(onCommentIconClick: (Feed) -> Unit, modifier: Modifier = Modifier) {
     val feedViewModel: FeedViewModel = hiltViewModel()
     val feeds = feedViewModel.feedList
 
@@ -161,16 +179,15 @@ fun FeedSection(modifier: Modifier = Modifier) {
         modifier = modifier.fillMaxSize()
     ) {
         feeds.forEach { feed ->
-            FeedCard(feed = feed,feedViewModel= feedViewModel)
+            FeedCard(feed = feed,feedViewModel= feedViewModel, onCommentIconClick = onCommentIconClick)
         }
     }
 }
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun FeedCard(feed: Feed,feedViewModel: FeedViewModel, modifier: Modifier = Modifier) {
+fun FeedCard(feed: Feed,feedViewModel: FeedViewModel, onCommentIconClick:(Feed) -> Unit, modifier: Modifier = Modifier) {
     val userViewModel : UserViewModel = hiltViewModel()
-    val exploreFeedViewModel: ExploreFeedViewModel = hiltViewModel()
 
     Column(modifier = modifier) {
         Row(
@@ -232,7 +249,7 @@ fun FeedCard(feed: Feed,feedViewModel: FeedViewModel, modifier: Modifier = Modif
                     )
                 }
                 Text("${feed.likeCount}")
-                IconButton(onClick = {}) {
+                IconButton(onClick = { onCommentIconClick(feed) }) {
                     Icon(
                         painter = painterResource(R.drawable.ic_comment),
                         contentDescription = null,
