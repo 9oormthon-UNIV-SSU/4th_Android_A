@@ -1,80 +1,131 @@
 package com.example.groomton_android_a_base.ui.screen
 
-import PostCard // PostCard 컴포저블의 정확한 import 경로 확인 (예: com.foo.instagram.ui.component.PostCard)
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-// Scaffold는 MainActivity에서 사용하므로 여기서는 제거합니다.
-// import androidx.compose.material3.Scaffold // <<< 이 줄을 삭제합니다.
-
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.groomton_android_a_base.ui.component.StorySection // StorySection 컴포저블 import
-import com.example.groomton_android_a_base.viewmodel.FeedViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 
-// Divider 관련 import
+// Material 3 관련
 import androidx.compose.material3.Divider
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.ExperimentalMaterial3Api // TopAppBar, Scaffold 등 사용을 위해
+import androidx.compose.material3.TopAppBarScrollBehavior // 스크롤 동작을 위해
+import androidx.compose.material3.rememberTopAppBarState // scrollBehavior 생성을 위해
+import androidx.compose.material3.TopAppBarDefaults // scrollBehavior 생성을 위해
+import androidx.compose.material3.Scaffold // ❗ HomeScreen 내부에 Scaffold 추가 ❗
+import androidx.compose.material3.TopAppBar // ❗ HomeScreen 내부에 TopAppBar 추가 ❗
+import androidx.compose.material3.Icon // TopAppBar Icon을 위해
+import androidx.compose.material3.IconButton // TopAppBar IconButton을 위해
+import androidx.compose.material3.MaterialTheme // TopAppBar 색상 등을 위해
+import androidx.compose.material3.Text // TopAppBar Text를 위해
+import com.example.groomton_android_a_base.ui.theme.InstagramTheme
 
-// TopAppBarScrollBehavior 관련 import
-import androidx.compose.material3.TopAppBarScrollBehavior
-import androidx.compose.ui.input.nestedscroll.nestedScroll // nestedScroll Modifier import
-import androidx.compose.foundation.layout.PaddingValues // innerPadding 타입을 명확히 하기 위해
-import androidx.compose.material3.ExperimentalMaterial3Api
+// 레이아웃 관련
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.PaddingValues // innerPadding 타입
+import androidx.compose.ui.input.nestedscroll.nestedScroll // nestedScroll Modifier
+import androidx.compose.foundation.clickable // PostCard 클릭을 위해
+import androidx.compose.foundation.layout.Row // TopAppBar Title/Actions용
+import androidx.compose.foundation.layout.Arrangement // TopAppBar Title/Actions용
+import androidx.compose.foundation.layout.WindowInsets // TopAppBar의 windowInsets용
+import androidx.compose.ui.res.painterResource // TopAppBar 아이콘용
+import androidx.compose.ui.unit.dp // dp 단위
+import androidx.compose.ui.Alignment
+
+// 프로젝트 컴포넌트 및 데이터
+import com.example.groomton_android_a_base.ui.component.PostCard
+import com.example.groomton_android_a_base.ui.component.StorySection
+import com.example.groomton_android_a_base.viewmodel.FeedViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.groomton_android_a_base.sampledata.SampleDataProvider
+import com.example.groomton_android_a_base.R // 앱 리소스 (아이콘)
+import androidx.navigation.NavController
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
-    viewModel: FeedViewModel = viewModel(),
-    // MainActivity의 Scaffold에서 전달받을 innerPadding과 scrollBehavior 파라미터 추가
-    innerPadding: PaddingValues, // <<< 이 파라미터 추가
-    scrollBehavior: TopAppBarScrollBehavior // <<< 이 파라미터 추가
+    viewModel: FeedViewModel,
+    innerPadding: PaddingValues,
+    navController: NavController
 ) {
     val posts = viewModel.postList
-    val stories = List(6) { "user$it" } // 예시용 스토리 데이터 (실제 데이터 구조에 맞게 변경 권장)
+    val storyUsers = SampleDataProvider.sampleStoryUsers
 
+    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(rememberTopAppBarState())
 
-    // HomeScreen 내부의 Scaffold를 제거합니다.
-    // Scaffold { innerPadding -> // <<< 이 줄과 아래 닫는 괄호 }를 삭제합니다.
-    LazyColumn(
-        // MainActivity에서 받은 innerPadding을 여기에 적용합니다.
-        modifier = modifier
-            .fillMaxSize()
-            // LazyColumn의 스크롤 이벤트를 TopAppBarScrollBehavior로 전달
-            .nestedScroll(scrollBehavior.nestedScrollConnection) // <<< 이 부분 추가
-
-    ) {
-
-        // 1. 스토리 섹션
-        item {
-            StorySection(stories = stories)
-        }
-
-        // 2. 스토리 섹션과 게시물 섹션 사이에 구분선 추가
-        item {
-            Divider(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 0.dp), // 좌우 패딩을 조절하여 선의 길이를 결정 (0으로 하면 화면 끝까지)
-                thickness = 3.dp, // 선의 두께 (얇은 선)
-                color = Color.LightGray // 선의 색상 (회색 계열)
-                // MaterialTheme.colorScheme.outlineVariant 도 좋은 옵션입니다.
+    Scaffold(
+        modifier = modifier.fillMaxSize(),
+        topBar = {
+            TopAppBar(
+                scrollBehavior = scrollBehavior,
+                modifier = Modifier.padding(0.dp),
+                windowInsets = WindowInsets(0),
+                title = {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.Start,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_logos_instagram),
+                            contentDescription = "Instagram Logo",
+                            modifier = Modifier.padding(0.dp)
+                        )
+                    }
+                },
+                actions = {
+                    IconButton(onClick = {/*좋아요 클릭*/}) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_heart_outline),
+                            contentDescription = "Likes",
+                            modifier = Modifier.padding(0.dp)
+                        )
+                    }
+                    IconButton(onClick = {/*메시지 클릭*/}) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_message_icon),
+                            contentDescription = "Messages",
+                            modifier = Modifier.padding(0.dp)
+                        )
+                    }
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.background
+                )
             )
         }
-
-        // 3. 게시물 섹션
-        items(posts) { post ->
-            PostCard(
-                post = post,
-                onLikeClick = { viewModel.toggleLike(post.id) }
-            )
+    ) { currentScreenInnerPadding ->
+        LazyColumn(
+            // ❗ Scaffold가 제공하는 패딩을 올바르게 적용합니다. ❗
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(currentScreenInnerPadding)
+                .nestedScroll(scrollBehavior.nestedScrollConnection)
+        ) {
+            // ❗ TopAppBar와 스토리 섹션 사이의 Divider를 제거합니다. ❗
+            item { StorySection(users = storyUsers) }
+            item {
+                Divider(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    thickness = 1.dp,
+                    color = Color.LightGray
+                )
+            }
+            items(posts) { post ->
+                PostCard(
+                    post = post,
+                    onLikeClick = { viewModel.toggleLike(post.id) },
+                    onUserClick = { user ->
+                        navController.navigate("profile/${user.id}")
+                    },
+                    modifier = Modifier
+                )
+            }
         }
     }
-    // } // <<< 이 닫는 괄호 } 도 삭제합니다.
 }

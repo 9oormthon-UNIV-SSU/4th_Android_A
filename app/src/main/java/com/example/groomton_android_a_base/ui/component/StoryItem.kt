@@ -1,45 +1,57 @@
 package com.example.groomton_android_a_base.ui.component
 
-import android.text.Layout
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.foundation.layout.size     // <-- 이거!
+import androidx.compose.foundation.layout.size
 import androidx.compose.ui.draw.clip
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Divider
 import androidx.compose.material3.Text
 import androidx.compose.material3.MaterialTheme
+
+import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.bumptech.glide.integration.compose.GlideImage
+
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.border
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import com.example.groomton_android_a_base.model.User
 
+
+@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun StoryItem(username: String, imageRes: Int) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Image(
-            painter = painterResource(id = imageRes),
-            contentDescription = null,
-            modifier = Modifier
-                .size(64.dp)
-                .clip(CircleShape)
-        )
-        Spacer(modifier = Modifier.height(4.dp))
-        Text(text = username, style = MaterialTheme.typography.labelSmall)
-    }
-//        Divider(
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .padding(horizontal = 0.dp), // 선의 좌우 패딩 (0으로 하면 화면 끝까지)
-//            thickness = 0.5.dp, // 선의 두께 (얇은 선)
-//            color = Color.LightGray // 선의 색상 (회색 계열)
-//            // MaterialTheme.colorScheme.outlineVariant 도 좋은 옵션입니다.
-//        )
+fun StoryItem(user: User) {
+    val gradientColors = listOf(
+        Color(0xFFFEDA75),
+        Color(0xFFFA7E1E),
+        Color(0xFFD62976),
+        Color(0xFF962FBF),
+        Color(0xFF4F5BD5)
+    )
+    val storyBorderBrush = Brush.linearGradient(colors = gradientColors)
 
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Box(
+            modifier = Modifier
+                .size(78.dp)
+                .clip(CircleShape)
+                .border(4.dp, storyBorderBrush, CircleShape),
+            contentAlignment = Alignment.Center
+        ) {
+            GlideImage(
+                model = user.profileImageUrl,
+                contentDescription = null,
+                modifier = Modifier
+                    .size(64.dp)
+                    .clip(CircleShape)
+            )
+        }
+        Spacer(modifier = Modifier.height(4.dp))
+        Text(text = user.name, style = MaterialTheme.typography.labelSmall)
+    }
 }
