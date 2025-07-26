@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
+
 import com.example.groomton_android_a_base.ui.component.SearchBar
 import com.example.groomton_android_a_base.model.ExploreFeed
 import com.example.groomton_android_a_base.sampledata.SampleDataProvider
@@ -30,18 +31,19 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.SearchBar
 
+import androidx.compose.material3.Scaffold // Preview에서 임시 Scaffold 사용을 위해 다시 import
 
 @OptIn(ExperimentalGlideComposeApi::class, ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun ExploreScreen(
     feeds: List<ExploreFeed>,
     innerPadding: PaddingValues,
-    query: String,
-    onQueryChange: (String) -> Unit,
+    // ❗ query: String, onQueryChange: (String) -> Unit 파라미터 제거 ❗
     modifier: Modifier = Modifier
 ) {
+    // ❗ query 상태는 ExploreScreen 내부에서 관리 ❗
+    var query by rememberSaveable { mutableStateOf("") } // ❗ 이 줄은 유지 ❗
     val filteredFeeds = if (query.isBlank()) feeds else feeds.filter {
         it.user.name.contains(query, ignoreCase = true)
     }
@@ -57,7 +59,7 @@ fun ExploreScreen(
         item(span = StaggeredGridItemSpan.FullLine) {
             SearchBar(
                 query = query,
-                onQueryChange = onQueryChange,
+                onQueryChange = { query = it },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(56.dp)
@@ -81,5 +83,19 @@ fun ExploreScreen(
             )
         }
     }
+
 }
-// ... (Preview 코드 유지) ...
+
+
+@Preview(showBackground = true, widthDp = 360, heightDp = 720)
+@Composable
+fun ExploreScreenPreview() {
+    androidx.compose.material3.Scaffold { innerPadding ->
+        ExploreScreen(
+            feeds = SampleDataProvider.sampleExploreFeeds,
+            innerPadding = innerPadding,
+            // ❗ Preview에서도 query, onQueryChange 파라미터 제거 ❗
+            modifier = Modifier
+        )
+    }
+}

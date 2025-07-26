@@ -14,7 +14,7 @@ import com.example.groomton_android_a_base.ui.screen.HomeScreen
 import com.example.groomton_android_a_base.ui.screen.ProfileScreen
 import com.example.groomton_android_a_base.ui.screen.ReelsScreen
 import com.example.groomton_android_a_base.viewmodel.FeedViewModel
-import androidx.compose.runtime.rememberSaveable
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.getValue
@@ -45,8 +45,8 @@ fun NavigationGraph(
             ExploreScreen(
                 feeds = SampleDataProvider.sampleExploreFeeds,
                 innerPadding = innerPadding,
-                query = exploreQuery,
-                onQueryChange = { exploreQuery = it }
+                // ❗ query와 onQueryChange 파라미터 제거 ❗
+                modifier = Modifier
             )
         }
         composable("reels") {

@@ -20,6 +20,7 @@ import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.example.groomton_android_a_base.viewmodel.FeedViewModel
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.material3.MaterialTheme
 
 @OptIn(ExperimentalGlideComposeApi::class, ExperimentalFoundationApi::class)
 @Composable

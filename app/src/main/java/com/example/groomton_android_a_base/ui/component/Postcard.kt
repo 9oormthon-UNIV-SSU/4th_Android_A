@@ -1,7 +1,6 @@
 // 파일 경로: app/src/main/java/com.example/groomton_android_a_base/ui/component/PostCard.kt
 package com.example.groomton_android_a_base.ui.component
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -39,6 +38,9 @@ import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 
+import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.bumptech.glide.integration.compose.GlideImage
+
 
 fun formatLikesCount(count: Int): String {
     return when {
@@ -54,11 +56,10 @@ fun formatLikesCount(count: Int): String {
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalGlideComposeApi::class)
 @Composable
-// ❗ onLikeClick과 onUserClick 파라미터 수정 ❗
 fun PostCard(
     post: Post,
-    onLikeClick: () -> Unit, // ❗ 파라미터가 없는 함수로 수정 ❗
-    onUserClick: (User) -> Unit, // ❗ onUserClick 콜백 추가 ❗
+    onLikeClick: () -> Unit,
+    onUserClick: (User) -> Unit,
     modifier: Modifier = Modifier
 ) {
     var commentInput by remember { mutableStateOf("") }
@@ -69,12 +70,10 @@ fun PostCard(
         modifier = modifier.fillMaxWidth(),
         Arrangement.spacedBy(0.dp)
     ) {
-        // 프로필 이미지 및 사용자 이름 Row
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .padding(vertical = 6.dp, horizontal = 14.dp)
-                // ❗ onUserClick 콜백을 호출하도록 수정 ❗
                 .clickable { onUserClick(post.user) }
         ) {
             GlideImage(
@@ -87,13 +86,12 @@ fun PostCard(
             Spacer(modifier = Modifier.weight(1f))
             IconButton(onClick = { /* TODO: 더보기 메뉴 또는 옵션 처리 */ }) {
                 Icon(
-                    painter = painterResource(id = R.drawable.ic_dots),
+                    painter = painterResource(id = R.drawable.ic_message_icon),
                     contentDescription = "More options"
                 )
             }
         }
 
-        // 게시물 이미지
         GlideImage(
             model = post.postImageUrl,
             contentDescription = null,
@@ -103,14 +101,12 @@ fun PostCard(
                 .align(Alignment.CenterHorizontally)
                 .pointerInput(Unit) {
                     detectTapGestures(
-                        // ❗ onDoubleTap에서 onLikeClick() 호출 ❗
                         onDoubleTap = { onLikeClick() }
                     )
                 },
             contentScale = ContentScale.Crop
         )
 
-        // 좋아요/댓글 아이콘 섹션
         Column(
             modifier = Modifier.fillMaxWidth()
         ) {
@@ -119,7 +115,6 @@ fun PostCard(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Start
             ) {
-                // ❗ IconButton에서 onLikeClick() 호출 ❗
                 IconButton(onClick = onLikeClick) {
                     Icon(
                         painter = painterResource(
@@ -174,7 +169,6 @@ fun PostCard(
                 CommentBottomSheetContent(
                     initialComment = "",
                     onCommentSubmit = { newComment ->
-                        // PostCard가 아닌 ViewModel에서 상태를 관리해야 합니다.
                         showBottomSheet = false
                     },
                     onDismiss = { showBottomSheet = false }
@@ -183,4 +177,55 @@ fun PostCard(
         }
     }
 }
-// ... (나머지 코드 유지) ...
+
+// ❗ PostCard 컴포저블이 끝나는 중괄호(}) 바로 뒤에 CommentBottomSheetContent 정의가 있어야 합니다. ❗
+@Composable
+fun CommentBottomSheetContent(
+    initialComment: String,
+    onCommentSubmit: (String) -> Unit, // 댓글 제출 시 호출될 콜백
+    onDismiss: () -> Unit // Bottom Sheet를 닫을 때 호출될 콜백
+) {
+    var currentComment by remember { mutableStateOf(initialComment) }
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .navigationBarsPadding()
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(10.dp)
+    ) {
+        Text(text = "댓글 작성", style = MaterialTheme.typography.headlineSmall)
+        Spacer(modifier = Modifier.height(8.dp))
+
+        OutlinedTextField(
+            value = currentComment,
+            onValueChange = { currentComment = it },
+            label = { Text("댓글을 입력하세요...") },
+            modifier = Modifier.fillMaxWidth(),
+            singleLine = false,
+            maxLines = 5
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.End
+        ) {
+            Button(
+                onClick = onDismiss,
+                colors = ButtonDefaults.outlinedButtonColors()
+            ) {
+                Text("취소")
+            }
+            Spacer(modifier = Modifier.width(8.dp))
+            Button(
+                onClick = { onCommentSubmit(currentComment) },
+                enabled = currentComment.isNotBlank()
+            ) {
+                Text("게시")
+            }
+        }
+    }
+}

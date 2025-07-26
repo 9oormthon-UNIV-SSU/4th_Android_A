@@ -51,6 +51,7 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation("androidx.navigation:navigation-compose:2.7.5")
     implementation(libs.androidx.navigation.compose.android)
+    implementation("com.github.bumptech.glide:compose:1.0.0-beta01") // ❗ 이 버전이 최신 stable 버전인지 확인 (현재는 맞음) ❗
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
