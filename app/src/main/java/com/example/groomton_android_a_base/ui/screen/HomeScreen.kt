@@ -116,7 +116,8 @@ fun HomeScreen(
             // TopAppBar와 스토리 섹션 사이의 Divider를 제거합니다.
             item {  StorySection(
                 users = storyUsers,
-                storyItemImageModifier = Modifier.border(4.dp, storyBorderBrush, CircleShape) // ❗ 테두리 Modifier 전달 ❗
+                storyItemImageModifier = Modifier.border(4.dp, storyBorderBrush, CircleShape),
+                navController = navController// ❗ 테두리 Modifier 전달 ❗
             ) }
             item {
                 Divider(
@@ -133,7 +134,9 @@ fun HomeScreen(
                     onUserClick = { user ->
                         navController.navigate("profile/${user.id}")
                     },
-                    modifier = Modifier
+                    modifier = Modifier.clickable { // ❗ PostCard 클릭 시 게시물 작성자 프로필로 이동 ❗
+                        navController.navigate("profile/${post.user.id}")
+                    }
                 )
             }
         }

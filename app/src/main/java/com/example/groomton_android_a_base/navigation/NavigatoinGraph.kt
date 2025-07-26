@@ -18,6 +18,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.getValue
+import com.example.groomton_android_a_base.ui.screen.StoryDetailScreen // ❗ StoryDetailScreen import ❗
 
 
 @Composable
@@ -60,6 +61,16 @@ fun NavigationGraph(
             if (userId != null) {
                 ProfileScreen(
                     userId = userId,
+                    viewModel = feedViewModel,
+                    navController = navController
+                )
+            }
+        }
+        composable("story_detail/{initialUserId}") { backStackEntry ->
+            val initialUserId = backStackEntry.arguments?.getString("initialUserId")
+            if (initialUserId != null) {
+                StoryDetailScreen(
+                    initialUserId = initialUserId,
                     viewModel = feedViewModel,
                     navController = navController
                 )
