@@ -39,11 +39,11 @@ import androidx.compose.material3.Scaffold // Preview에서 임시 Scaffold 사�
 fun ExploreScreen(
     feeds: List<ExploreFeed>,
     innerPadding: PaddingValues,
-    // ❗ query: String, onQueryChange: (String) -> Unit 파라미터 제거 ❗
+    //  query: String, onQueryChange: (String) -> Unit 파라미터 제거
     modifier: Modifier = Modifier
 ) {
-    // ❗ query 상태는 ExploreScreen 내부에서 관리 ❗
-    var query by rememberSaveable { mutableStateOf("") } // ❗ 이 줄은 유지 ❗
+    //  query 상태는 ExploreScreen 내부에서 관리
+    var query by rememberSaveable { mutableStateOf("") } //  이 줄은 유지
     val filteredFeeds = if (query.isBlank()) feeds else feeds.filter {
         it.user.name.contains(query, ignoreCase = true)
     }
@@ -94,7 +94,7 @@ fun ExploreScreenPreview() {
         ExploreScreen(
             feeds = SampleDataProvider.sampleExploreFeeds,
             innerPadding = innerPadding,
-            // ❗ Preview에서도 query, onQueryChange 파라미터 제거 ❗
+            //  Preview에서도 query, onQueryChange 파라미터 제거
             modifier = Modifier
         )
     }

@@ -48,6 +48,8 @@ import com.example.groomton_android_a_base.model.User
 import com.example.groomton_android_a_base.sampledata.SampleDataProvider
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridItemSpan
+import androidx.compose.foundation.shape.RoundedCornerShape
 import com.example.groomton_android_a_base.ui.component.StoryItem
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.mutableStateListOf
@@ -67,7 +69,7 @@ fun ProfileScreen(
 
 
     val highlightUsers = remember { SampleDataProvider.sampleHighlightUsers }
-    val currentLoggedInUserId = SampleDataProvider.sampleUsers.first { it.id == "my_user" }.id
+    val currentLoggedInUserId = SampleDataProvider.sampleUsers.first { it.id == "hyuk_seong" }.id
 
 
     Scaffold(
@@ -78,18 +80,27 @@ fun ProfileScreen(
                 title = {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         // ❗ user가 null일 수 있으므로 안전 호출 ?.name 사용 ❗
-                        Text(text = user?.name ?: "프로필", style = MaterialTheme.typography.titleLarge)
+                        Text(
+                            text = user?.name ?: "프로필",
+                            style = MaterialTheme.typography.titleLarge
+                        )
                     }
                 },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
-                        Icon(painter = painterResource(id = R.drawable.ic_arrow_back), contentDescription = "Back")
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_arrow_back),
+                            contentDescription = "Back"
+                        )
                     }
                 },
                 actions = {
 
                     IconButton(onClick = { /* TODO: 추가 */ }) {
-                        Icon(painter = painterResource(id = R.drawable.ic_dots), contentDescription = "Add")
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_dots),
+                            contentDescription = "Add"
+                        )
                     }
 
                 },
@@ -99,167 +110,184 @@ fun ProfileScreen(
             )
         }
     ) { innerPadding ->
-        Column(
+        LazyVerticalStaggeredGrid( //  이제 이 그리드가 전체 화면 스크롤을 담당합니다.
+            columns = StaggeredGridCells.Fixed(3),
             modifier = Modifier
                 .fillMaxSize()
-                .padding(innerPadding)
+                .padding(innerPadding), // MainActivity의 BottomBar 패딩도 함께 적용
+            verticalItemSpacing = 1.dp,
+            horizontalArrangement = Arrangement.spacedBy(1.dp)
         ) {
-            // 1. 프로필 헤더 섹션
-            if (user != null) { // user가 null이 아닐 때만 프로필 정보를 그립니다.
-                val nonNullUser = user // ❗ user가 null이 아님을 명시적으로 새로운 변수에 할당 ❗
-                Column(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        GlideImage(
-                            model = nonNullUser.profileImageUrl, // ❗ nonNullUser 사용 ❗
-                            contentDescription = null,
-                            modifier = Modifier.size(80.dp).clip(CircleShape),
-                            contentScale = ContentScale.Crop
-                        )
-                        Spacer(modifier = Modifier.width(32.dp))
-                        Row(modifier = Modifier.weight(1f), horizontalArrangement = Arrangement.SpaceAround) {
-                            ProfileStat(count = "1,132", label = "게시물")
-                            ProfileStat(count = "60K", label = "팔로워")
-                            ProfileStat(count = "4", label = "팔로잉")
-                        }
-                    }
-                    Spacer(modifier = Modifier.height(16.dp))
-                    Text(text = nonNullUser.name, style = MaterialTheme.typography.titleMedium) // ❗ nonNullUser 사용 ❗
-                    Text(text = "Find High Quality HD Pictures.", style = MaterialTheme.typography.bodyMedium)
-                    Text(text = "www.wallpapers4k.com", style = MaterialTheme.typography.bodySmall, color = Color.Blue)
-                    Spacer(modifier = Modifier.height(16.dp))
-                    Row(
-                        modifier = Modifier.fillMaxWidth().padding(horizontal = 0.dp),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        if (userId == currentLoggedInUserId) { // 내 프로필일 경우
-                            OutlinedButton(
-                                onClick = { /* TODO: 프로필 편집 */ },
+            //  1. 프로필 헤더 섹션을 그리드의 FullLine item으로 추가
+            item(span = StaggeredGridItemSpan.FullLine) {
+                if (user != null) {
+                    val nonNullUser = user
+                    Column(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            GlideImage(
+                                model = nonNullUser.profileImageUrl,
+                                contentDescription = null,
+                                modifier = Modifier.size(80.dp).clip(CircleShape),
+                                contentScale = ContentScale.Crop
+                            )
+                            Spacer(modifier = Modifier.width(32.dp))
+                            Row(
                                 modifier = Modifier.weight(1f),
-                                colors = ButtonDefaults.outlinedButtonColors(
-                                    containerColor = Color.Transparent,
-                                    contentColor = MaterialTheme.colorScheme.onSurface,
-                                )
+                                horizontalArrangement = Arrangement.SpaceAround
                             ) {
-                                Text("프로필 편집")
-                            }
-                            OutlinedButton(
-                                onClick = { /* TODO: 프로필 공유 */ },
-                                modifier = Modifier.weight(1f),
-                                colors = ButtonDefaults.outlinedButtonColors(
-                                    containerColor = Color.Transparent,
-                                    contentColor = MaterialTheme.colorScheme.onSurface,
-                                )
-                            ) {
-                                Text("프로필 공유")
-                            }
-                        } else { // 상대방 프로필일 경우
-                            Button( // 팔로우 버튼 (채워진 파란색)
-                                onClick = { /* TODO: 팔로우 */ },
-                                modifier = Modifier.weight(1f),
-                                colors = ButtonDefaults.buttonColors(
-                                    containerColor = MaterialTheme.colorScheme.primary, // 테마의 파란색
-                                    contentColor = Color.White
-                                )
-                            ) {
-                                // ❗ Text("팔로우") 대신 Icon 사용 ❗
-                                Icon(
-                                    painter = painterResource(id = R.drawable.ic_followbutton), // ❗ ic_followButton 사용 ❗
-                                    contentDescription = "Follow"
-                                )
-                            }
-                            OutlinedButton( // 메시지 버튼 (테두리)
-                                onClick = { /* TODO: 메시지 */ },
-                                modifier = Modifier.weight(1f),
-                                colors = ButtonDefaults.outlinedButtonColors(
-                                    containerColor = Color.Transparent,
-                                    contentColor = MaterialTheme.colorScheme.onSurface,
-                                )
-                            ) {
-                                // ❗ Text("메시지") 대신 Icon 사용 ❗
-                                Icon(
-                                    painter = painterResource(id = R.drawable.ic_messagebutton), // ❗ ic_messageButton 사용 ❗
-                                    contentDescription = "Message"
-                                )
+                                ProfileStat(count = "1,132", label = "게시물")
+                                ProfileStat(count = "60K", label = "팔로워")
+                                ProfileStat(count = "4", label = "팔로잉")
                             }
                         }
-                    }
-                }
-            } else {
-                // user 정보 로딩 중이거나 찾을 수 없을 때의 대체 UI
-                Box(modifier = Modifier.fillMaxWidth().height(200.dp), contentAlignment = Alignment.Center) {
-                    Text("사용자 정보를 찾을 수 없습니다.", color = Color.Gray)
-                    // 또는 CircularProgressIndicator()
-                }
-            }
-
-
-            // 2. 하이라이트/스토리 아이템 (LazyRow) - 이것은 userPosts가 비어있어도 항상 보여야 합니다.
-            LazyRow(
-                modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                contentPadding = PaddingValues(horizontal = 16.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                items(highlightUsers) { highlightUser ->
-                    StoryItem(user = highlightUser)
-                }
-            }
-            Divider(modifier = Modifier.fillMaxWidth(), thickness = 1.dp, color = Color.LightGray)
-
-            // 3. 프로필 탭 (게시물, 릴스, 태그됨)
-            Row(
-                modifier = Modifier.fillMaxWidth().height(48.dp),
-                horizontalArrangement = Arrangement.SpaceAround,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                IconButton(onClick = { /* TODO: 게시물 탭 */ }) {
-                    Icon(painter = painterResource(id = R.drawable.ic_grid_tab), contentDescription = "Posts Grid")
-                }
-                IconButton(onClick = { /* TODO: 릴스 탭 */ }) {
-                    Icon(painter = painterResource(id = R.drawable.ic_reels), contentDescription = "Reels")
-                }
-                IconButton(onClick = { /* TODO: 태그됨 탭 */ }) {
-                    Icon(painter = painterResource(id = R.drawable.ic_profile), contentDescription = "Tagged Posts")
-                }
-            }
-            Divider(modifier = Modifier.fillMaxWidth(), thickness = 1.dp, color = Color.LightGray)
-
-            // 4. 게시물 그리드
-            if (userPosts.isEmpty()) {
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Icon(painter = painterResource(id = R.drawable.ic_logos_instagram), contentDescription = "Camera", modifier = Modifier.size(64.dp))
                         Spacer(modifier = Modifier.height(16.dp))
-                        Text("게시물 없음")
+                        Text(text = nonNullUser.name, style = MaterialTheme.typography.titleMedium)
+                        Text(
+                            text = "Find High Quality HD Pictures.",
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                        Text(
+                            text = "www.wallpapers4k.com",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = Color.Blue
+                        )
+                        Spacer(modifier = Modifier.height(16.dp))
+                        Row(
+                            modifier = Modifier.fillMaxWidth().padding(horizontal = 0.dp),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            if (userId == nonNullUser.id) { // 내 프로필일 경우 (nonNullUser 사용)
+                                OutlinedButton(
+                                    onClick = { /* 프로필 편집 */ },
+                                    modifier = Modifier.weight(1f),
+                                    colors = ButtonDefaults.outlinedButtonColors(
+                                        containerColor = Color.Transparent,
+                                        contentColor = MaterialTheme.colorScheme.onSurface
+                                    ),
+                                    shape = RoundedCornerShape(8.dp)
+                                ) { Text("프로필 편집") }
+                                OutlinedButton(
+                                    onClick = { /* 프로필 공유 */ },
+                                    modifier = Modifier.weight(1f),
+                                    colors = ButtonDefaults.outlinedButtonColors(
+                                        containerColor = Color.Transparent,
+                                        contentColor = MaterialTheme.colorScheme.onSurface
+                                    ),
+                                    shape = RoundedCornerShape(8.dp)
+                                ) { Text("프로필 공유") }
+                            } else { // 상대방 프로필일 경우
+                                Button(
+                                    onClick = { /* 팔로우 */ },
+                                    modifier = Modifier.weight(1f),
+                                    colors = ButtonDefaults.buttonColors(
+                                        containerColor = Color(0xFF405DE6),
+                                        contentColor = Color.White
+                                    ),
+                                    shape = RoundedCornerShape(8.dp)
+                                ) { Text("팔로우") }
+                                Button(
+                                    onClick = { /* 메시지 */ },
+                                    modifier = Modifier.weight(1f),
+                                    colors = ButtonDefaults.buttonColors(
+                                        containerColor = Color(0xFFEFEFEF),
+                                        contentColor = Color.Black
+                                    ),
+                                    shape = RoundedCornerShape(8.dp)
+                                ) { Text("메시지") }
+                            }
+                        }
+                    }
+                } else {
+                    Box(
+                        modifier = Modifier.fillMaxWidth().height(200.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text("사용자 정보를 찾을 수 없습니다.", color = Color.Gray)
+                    }
+                }
+            }
+
+
+            //  2. 하이라이트/스토리 아이템 (LazyRow) - 그리드의 FullLine item으로 추가
+            item(span = StaggeredGridItemSpan.FullLine) {
+                LazyRow(
+                    modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    contentPadding = PaddingValues(horizontal = 16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    items(highlightUsers) { highlightUser ->
+                        StoryItem(user = highlightUser)
+                    }
+                }
+            }
+//            Divider(modifier = Modifier.fillMaxWidth(), thickness = 1.dp, color = Color.LightGray)
+
+            //  3. 프로필 탭 (게시물, 릴스, 태그됨) - 그리드의 FullLine item으로 추가
+            item(span = StaggeredGridItemSpan.FullLine) {
+                Row(
+                    modifier = Modifier.fillMaxWidth().height(48.dp),
+                    horizontalArrangement = Arrangement.SpaceAround,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    IconButton(onClick = { /* TODO: 게시물 탭 */ }) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_grid_tab),
+                            contentDescription = "Posts Grid"
+                        )
+                    }
+                    IconButton(onClick = { /* TODO: 릴스 탭 */ }) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_reels),
+                            contentDescription = "Reels"
+                        )
+                    }
+                    IconButton(onClick = { /* TODO: 태그됨 탭 */ }) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_profile),
+                            contentDescription = "Tagged Posts"
+                        )
+                    }
+                }
+            }
+            //Divider(modifier = Modifier.fillMaxWidth(), thickness = 1.dp, color = Color.LightGray)
+
+            //  4. 게시물 그리드 - 기존의 items(userPosts)는 그대로 유지
+            if (userPosts.isEmpty()) {
+                item(span = StaggeredGridItemSpan.FullLine) { // 게시물 없음 메시지도 FullLine item
+                    Box(
+                        modifier = Modifier.fillMaxSize().height(300.dp),
+                        contentAlignment = Alignment.Center
+                    ) { // 적절한 높이 부여
+                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                            Icon(
+                                painter = painterResource(id = R.drawable.ic_logos_instagram),
+                                contentDescription = "Camera",
+                                modifier = Modifier.size(64.dp)
+                            )
+                            Spacer(modifier = Modifier.height(16.dp))
+                            Text("게시물 없음")
+                        }
                     }
                 }
             } else {
-                LazyVerticalStaggeredGrid(
-                    columns = StaggeredGridCells.Fixed(3),
-                    modifier = Modifier.fillMaxSize().padding(horizontal = 1.dp),
-                    verticalItemSpacing = 1.dp,
-                    horizontalArrangement = Arrangement.spacedBy(1.dp)
-                ) {
-                    items(userPosts) { post ->
-                        GlideImage(
-                            model = post.postImageUrl,
-                            contentDescription = null,
-                            modifier = Modifier.fillMaxWidth().aspectRatio(1f),
-                            contentScale = ContentScale.Crop
-                        )
-                    }
+                items(userPosts) { post -> //  userPosts는 이 그리드의 실제 아이템으로 들어갑니다.
+                    GlideImage(
+                        model = post.postImageUrl,
+                        contentDescription = null,
+                        modifier = Modifier.fillMaxWidth().aspectRatio(1f),
+                        contentScale = ContentScale.Crop
+                    )
                 }
             }
         }
     }
 }
-
 @Composable
-
 fun ProfileStat(count: String, label: String) {
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {

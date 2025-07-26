@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.groomton_android_a_base.sampledata.SampleDataProvider
 
 /**
  * Bottom Navigation Bar
@@ -25,6 +26,7 @@ fun BottomBar(
 ) {
     // 1) 탭 목록 정의
     val screens = listOf("home", "explore", "reels", "profile")
+    val myUserId = SampleDataProvider.sampleUsers.first { it.id == "hyuk_seong" }.id
 
     // 2) 실제 Bar 그리기
     NavigationBar (
@@ -53,8 +55,16 @@ fun BottomBar(
                 },
                 selected = isSelected,
                 onClick = {
-                    navController.navigate(screen) {
-                        popUpTo(navController.graph.startDestinationId) {
+                    // ❗ "profile" 탭일 때만 내 프로필로 이동하도록 변경 ❗
+                    val routeToNavigate = if (screen == "profile") {
+                        "profile/$myUserId" // 내 프로필 ID를 포함하여 이동
+                    } else {
+                        screen // 다른 탭은 기존 라우트 사용
+                    }
+
+                    navController.navigate(routeToNavigate) {
+                        // ❗ popUpTo를 "home" 라우트 이름으로 명시적으로 변경 ❗
+                        popUpTo("home") { // ❗ 변경 ❗
                             saveState = true
                         }
                         launchSingleTop = true

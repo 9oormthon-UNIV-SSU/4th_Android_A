@@ -24,6 +24,9 @@ import androidx.compose.runtime.getValue
 fun NavigationGraph(
     navController: NavHostController,
     innerPadding: PaddingValues,
+    exploreQuery: String, // ❗ 파라미터 추가 ❗
+    onExploreQueryChange: (String) -> Unit, // ❗ 파라미터 추가 ❗
+    feedViewModel: FeedViewModel, // ❗ 파라미터 추가 ❗
     modifier: Modifier = Modifier
 ) {
     val feedViewModel: FeedViewModel = viewModel()

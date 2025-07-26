@@ -34,23 +34,35 @@ object SampleDataProvider {
         User("Work out", "Work out", "https://picsum.photos/id/406/100/100"),
         User("nigga_nigga", "nigga_nigga", "https://picsum.photos/id/407/100/100") // 7개 요청하셨으니 하나 더 추가
     )
-    val sampleExploreFeeds = listOf(
-        ExploreFeed(id = "hyuk_seong", imageUrl = "https://picsum.photos/id/200/600/600", user = sampleUsers[1], size = 1),
-        ExploreFeed(id = "hyeon_0", imageUrl = "https://picsum.photos/id/201/600/600", user = sampleUsers[2], size = 2),
-        ExploreFeed(id = "nigga_nigga", imageUrl = "https://picsum.photos/id/202/600/600", user = sampleUsers[3], size = 1),
-        ExploreFeed(id = "chuvelop", imageUrl = "https://picsum.photos/id/203/600/600", user = sampleUsers[4], size = 1),
-        ExploreFeed(id = "jaehun_24", imageUrl = "https://picsum.photos/id/204/600/600", user = sampleUsers[5], size = 2),
-        ExploreFeed(id = "hyeon_0", imageUrl = "https://picsum.photos/id/205/600/600", user = sampleUsers[6], size = 1),
-        ExploreFeed(id = "chuvelop", imageUrl = "https://picsum.photos/id/206/600/600", user = sampleUsers[7], size = 1),
-        ExploreFeed(id = "jaehoon_king", imageUrl = "https://picsum.photos/id/207/600/600", user = sampleUsers[8], size = 2),
-        ExploreFeed(id = "skr_skr", imageUrl = "https://picsum.photos/id/208/600/600", user = sampleUsers[9], size = 1),
-        ExploreFeed(id = "nigga_nigga", imageUrl = "https://picsum.photos/id/209/600/600", user = sampleUsers[10], size = 1),
-    )
+    val sampleExploreFeeds = buildList {
+        // 이 유저 ID들을 반복하여 게시물을 생성합니다.
+        val authorIdsForExploreFeeds = listOf(
+             "hyuk_seong","hyeon_0", "nigga_nigga", "chuvelop",
+            "jaehun_24", "jaehoon_king", "skr_skr", "goorhm", "gang_gang", "kidsung3" // 더 다양한 유저 포함
+        )
+        var imageCounter = 2000 // 이미지 ID 시작점
 
-    // ❗ PostCard에서 사용할 샘플 Post 데이터 생성 함수 ❗
+        // 각 유저 ID별로 약 8개의 게시물을 만들도록 반복
+        for (i in 0 until 80) { // 총 80개의 게시물을 만들되, 작성자 ID를 반복시킴
+            val authorIdString = authorIdsForExploreFeeds[i % authorIdsForExploreFeeds.size]
+            val user = sampleUsers.first { it.id == authorIdString } // 해당 ID의 User 객체 찾기
+
+            add(ExploreFeed(
+                id = authorIdString, // ❗ ExploreFeed의 id는 게시물 작성자의 id와 동일하게 (중복 가능) ❗
+                imageUrl = "https://picsum.photos/200/300?random=${Random.nextInt(0, 300)}",
+                user = user, // 게시물 작성자 User 객체
+                size = if (i % 3 == 0) 2 else 1 // 다양한 비율
+            ))
+        }
+    }
+
+    //  PostCard에서 사용할 샘플 Post 데이터 생성 함수
     fun createSamplePost(id: Int): Post {
         val user = sampleUsers[id % sampleUsers.size]
-        val postUrl = "https://picsum.photos/id/${id + 100}/600/600"
+
+        val postUrl = "https://picsum.photos/200/300?random=${Random.nextInt(0, 300)}"
+
+
         val isLiked = id % 2 == 0
 
         val comments = if (id == 0) listOf(
@@ -64,7 +76,7 @@ object SampleDataProvider {
             postImageUrl = postUrl,
             isLiked = isLiked,
             comments = comments,
-            // ❗ 좋아요 수를 1부터 99,999까지 랜덤으로 생성 ❗
+            //  좋아요 수를 1부터 99,999까지 랜덤으로 생성
             likesCount = Random.nextInt(1, 100000)
         )
     }

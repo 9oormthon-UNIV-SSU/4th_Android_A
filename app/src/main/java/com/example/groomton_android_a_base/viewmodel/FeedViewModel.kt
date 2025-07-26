@@ -19,7 +19,7 @@ class FeedViewModel : ViewModel() {
     val currentPost: StateFlow<Post?> = _currentPost
 
     init {
-        repeat(6) { index ->
+        repeat(80) { index ->
             _postList.add(SampleDataProvider.createSamplePost(index))
         }
     }

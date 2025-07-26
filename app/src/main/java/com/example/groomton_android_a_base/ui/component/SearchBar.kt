@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.res.painterResource
 import com.example.groomton_android_a_base.R
 
-import androidx.compose.material3.SearchBar as M3SearchBar // ❗ M3SearchBar 별칭 import ❗
+import androidx.compose.material3.SearchBar as M3SearchBar //  M3SearchBar 별칭 import
 import androidx.compose.ui.graphics.Color
 
 

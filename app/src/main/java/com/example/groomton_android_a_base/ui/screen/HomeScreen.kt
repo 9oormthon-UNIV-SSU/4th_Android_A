@@ -107,13 +107,13 @@ fun HomeScreen(
         }
     ) { currentScreenInnerPadding ->
         LazyColumn(
-            // ❗ Scaffold가 제공하는 패딩을 올바르게 적용합니다. ❗
+            //  Scaffold가 제공하는 패딩을 올바르게 적용합니다.
             modifier = Modifier
                 .fillMaxSize()
                 .padding(currentScreenInnerPadding)
                 .nestedScroll(scrollBehavior.nestedScrollConnection)
         ) {
-            // ❗ TopAppBar와 스토리 섹션 사이의 Divider를 제거합니다. ❗
+            // TopAppBar와 스토리 섹션 사이의 Divider를 제거합니다.
             item {  StorySection(
                 users = storyUsers,
                 storyItemImageModifier = Modifier.border(4.dp, storyBorderBrush, CircleShape) // ❗ 테두리 Modifier 전달 ❗

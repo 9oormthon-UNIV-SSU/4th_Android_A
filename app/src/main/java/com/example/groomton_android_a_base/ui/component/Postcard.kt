@@ -40,6 +40,7 @@ import androidx.compose.ui.layout.ContentScale
 
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
+import com.bumptech.glide.integration.compose.placeholder
 
 
 fun formatLikesCount(count: Int): String {
@@ -80,6 +81,7 @@ fun PostCard(
                 model = post.user.profileImageUrl,
                 contentDescription = null,
                 modifier = Modifier.size(40.dp).clip(CircleShape),
+
             )
             Spacer(modifier = Modifier.width(8.dp))
             Text(text = post.user.name)
@@ -178,7 +180,7 @@ fun PostCard(
     }
 }
 
-// ❗ PostCard 컴포저블이 끝나는 중괄호(}) 바로 뒤에 CommentBottomSheetContent 정의가 있어야 합니다. ❗
+//  PostCard 컴포저블이 끝나는 중괄호(}) 바로 뒤에 CommentBottomSheetContent 정의가 있어야 합니다.
 @Composable
 fun CommentBottomSheetContent(
     initialComment: String,

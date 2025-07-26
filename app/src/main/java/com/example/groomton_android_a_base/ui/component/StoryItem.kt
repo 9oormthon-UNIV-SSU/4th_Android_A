@@ -28,16 +28,16 @@ import com.example.groomton_android_a_base.model.User
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-// ❗ imageModifier 파라미터를 추가하여, 이미지의 외형(테두리 포함)을 외부에서 제어하도록 합니다. ❗
+// imageModifier 파라미터를 추가하여, 이미지의 외형(테두리 포함)을 외부에서 제어하도록 합니다. ❗
 fun StoryItem(user: User, imageModifier: Modifier = Modifier) {
-    // ❗ 그라데이션 색상 정의 및 storyBorderBrush 변수 제거 (외부에서 처리) ❗
+    //  그라데이션 색상 정의 및 storyBorderBrush 변수 제거 (외부에서 처리)
     // val gradientColors = listOf(...)
     // val storyBorderBrush = Brush.linearGradient(colors = gradientColors)
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Box(
-            // ❗ Box의 modifier에 imageModifier를 적용하고, 내부에서 size와 clip을 적용합니다. ❗
-            // ❗ border는 여기서 제거합니다. ❗
+            //  Box의 modifier에 imageModifier를 적용하고, 내부에서 size와 clip을 적용합니다.
+            //  border는 여기서 제거합니다.
             modifier = imageModifier // 외부에서 전달받은 Modifier
                 .size(78.dp) // 전체 크기는 유지 (내부 이미지보다 크게)
                 .clip(CircleShape) // 원형으로 자르기
