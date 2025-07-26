@@ -86,7 +86,7 @@ fun PostCard(
             Spacer(modifier = Modifier.weight(1f))
             IconButton(onClick = { /* TODO: 더보기 메뉴 또는 옵션 처리 */ }) {
                 Icon(
-                    painter = painterResource(id = R.drawable.ic_message_icon),
+                    painter = painterResource(id = R.drawable.ic_dots),
                     contentDescription = "More options"
                 )
             }

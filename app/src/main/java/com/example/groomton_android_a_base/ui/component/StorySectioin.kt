@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun StorySection(users: List<User>) {
+fun StorySection(users: List<User>, storyItemImageModifier: Modifier = Modifier) {
     val listState = rememberLazyListState()
 
     val flingBehavior = ScrollableDefaults.flingBehavior()
@@ -33,7 +33,7 @@ fun StorySection(users: List<User>) {
         flingBehavior = flingBehavior
     ) {
         items(users) { user ->
-            StoryItem(user = user)
+            StoryItem(user = user, imageModifier = storyItemImageModifier)
         }
     }
 }

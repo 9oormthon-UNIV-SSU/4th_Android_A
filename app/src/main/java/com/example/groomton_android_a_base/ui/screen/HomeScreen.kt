@@ -9,7 +9,6 @@ import androidx.compose.ui.Modifier
 
 // Material 3 관련
 import androidx.compose.material3.Divider
-import androidx.compose.ui.graphics.Color
 import androidx.compose.material3.ExperimentalMaterial3Api // TopAppBar, Scaffold 등 사용을 위해
 import androidx.compose.material3.TopAppBarScrollBehavior // 스크롤 동작을 위해
 import androidx.compose.material3.rememberTopAppBarState // scrollBehavior 생성을 위해
@@ -42,7 +41,10 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.groomton_android_a_base.sampledata.SampleDataProvider
 import com.example.groomton_android_a_base.R // 앱 리소스 (아이콘)
 import androidx.navigation.NavController
-
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.foundation.border
+import androidx.compose.foundation.shape.CircleShape
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -54,6 +56,11 @@ fun HomeScreen(
 ) {
     val posts = viewModel.postList
     val storyUsers = SampleDataProvider.sampleStoryUsers
+    val gradientColors = listOf(
+        Color(0xFFFEDA75), Color(0xFFFA7E1E), Color(0xFFD62976), Color(0xFF962FBF), Color(0xFF4F5BD5)
+    )
+    val storyBorderBrush = Brush.linearGradient(colors = gradientColors)
+
 
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(rememberTopAppBarState())
 
@@ -107,7 +114,10 @@ fun HomeScreen(
                 .nestedScroll(scrollBehavior.nestedScrollConnection)
         ) {
             // ❗ TopAppBar와 스토리 섹션 사이의 Divider를 제거합니다. ❗
-            item { StorySection(users = storyUsers) }
+            item {  StorySection(
+                users = storyUsers,
+                storyItemImageModifier = Modifier.border(4.dp, storyBorderBrush, CircleShape) // ❗ 테두리 Modifier 전달 ❗
+            ) }
             item {
                 Divider(
                     modifier = Modifier
